@@ -4,6 +4,7 @@ class MovableObject { //an sich eine Schablone mit den Feldern definiert
     img;
     height = 200;
     width = 100;
+    imageCache = {};
 
     //loadImage('img/test.png');
     loadImage(path) {
@@ -11,12 +12,26 @@ class MovableObject { //an sich eine Schablone mit den Feldern definiert
         this.img.src = path;
     }
 
-    moveRight() {   //function moveRight() -> moveRight(), muss so gekürzt werden, wenn es innerhalb einer Class ist.
-        console.log('Moving right');
-        
+    /**
+     * 
+     * @param {Array} arr - ['img/image1.png', 'img/image2.png', ....]
+     */
+
+    loadImages(arr) {
+        arr.forEach((path) => {
+            let img = new Image();
+            img.src = path;
+            this.imageCache[path] = path;
+
+        });
     }
 
-    moveLeft(){
+    moveRight() {   //function moveRight() -> moveRight(), muss so gekürzt werden, wenn es innerhalb einer Class ist.
+        console.log('Moving right');
+
+    }
+
+    moveLeft() {
 
     }
 }
