@@ -1,7 +1,9 @@
 class MovableObject { //an sich eine Schablone mit den Feldern definiert
     x = 120; //definierter Startpunkt x und y
-    y = 400;
+    y = 250;
     img;
+    height = 200;
+    width = 100;
 
     //loadImage('img/test.png');
     loadImage(path) {
