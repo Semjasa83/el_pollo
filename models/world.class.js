@@ -1,34 +1,48 @@
 class World {
 
-    //ist ein JSON das die ganzen Attribute schon besitzt durch die andere JS datei.
-    //variablen in einer class werden ohne "let" definiert.
     character = new Character();
     enemies = [
         new Chicken(),
         new Chicken(),
         new Chicken(),
     ];
+    clouds = [
+        new Cloud()
+    ];
+    backgroundObjects = [
+        new BackgroundObject('img/5.Fondo/Capas/3.Fondo3/1.png', 0, 110),
+    ];
     canvas;
     ctx;
 
 
     constructor(canvas)  {
-        this.ctx = canvas.getContext('2d'); //damit context über CTX im schnellzugriff ist // ctx ist standard dafür
-        this.canvas = canvas; //this.canvas(die Globale) wird canvas = die aus dem constructor übergeben.
+        this.ctx = canvas.getContext('2d'); 
+        this.canvas = canvas; 
         this.draw();
     }
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        this.ctx.drawImage(this.character.img, this.character.x, this.character.y, this.character.width, this.character.height);
-        this.enemies.forEach(enemy => {
-            this.ctx.drawImage(enemy.img, enemy.x, enemy.y, enemy.width, enemy.height);
-        });
+        this.addToMap(this.character);
+        this.addObjectsToMap(this.enemies);
+        this.addObjectsToMap(this.clouds);
+        this.addObjectsToMap(this.backgroundObjects);
 
-        let self = this; //draw() wird immer wieder aufgerufen
-        requestAnimationFrame(function() { //wird so oft aufgerufen, wie die Grafikkarte hergibt. //ausgeführt, sobald alles geladen ist.
-            self.draw(); //his geht hier nicht mehr, daher self = this;
+        let self = this; 
+        requestAnimationFrame(function() { 
+            self.draw(); 
     });
+    }
+
+    addObjectsToMap(objects){
+        objects.forEach(object => {
+            this.addToMap(object);
+        });
+    }
+
+    addToMap(mo) {
+        this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
     }
 }
