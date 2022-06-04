@@ -1,14 +1,19 @@
-class MovableObject { //an sich eine Schablone mit den Feldern definiert
-    x = 120; //definierter Startpunkt x und y
+/**
+ * x and y are Startpoints.
+ */
+
+class MovableObject {
+    x = 120;
     y = 200;
     img;
     height = 200;
     width = 100;
     imageCache = {};
+    currentImage = 0;
 
     //loadImage('img/test.png');
     loadImage(path) {
-        this.img = new Image(); // this.img = document.getElementById('image)  <img id="image" src>
+        this.img = new Image();
         this.img.src = path;
     }
 
@@ -21,12 +26,12 @@ class MovableObject { //an sich eine Schablone mit den Feldern definiert
         arr.forEach((path) => {
             let img = new Image();
             img.src = path;
-            this.imageCache[path] = path;
+            this.imageCache[path] = img;
 
         });
     }
 
-    moveRight() {   //function moveRight() -> moveRight(), muss so gekürzt werden, wenn es innerhalb einer Class ist.
+    moveRight() {
         console.log('Moving right');
 
     }
