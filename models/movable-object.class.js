@@ -10,6 +10,7 @@ class MovableObject {
     width = 100;
     imageCache = {};
     currentImage = 0;
+    speed = 0.2;
 
     //loadImage('img/test.png');
     loadImage(path) {
@@ -20,6 +21,7 @@ class MovableObject {
     /**
      * 
      * @param {Array} arr - ['img/image1.png', 'img/image2.png', ....]
+     * arr = [character] -> imagesWalking
      */
 
     loadImages(arr) {
@@ -36,7 +38,11 @@ class MovableObject {
 
     }
 
-    moveLeft() {
-
+    moveLeft () {
+        setInterval( () => {
+            this.x -= this.speed;
+        }, 1000 / 60);
     }
+
+
 }
