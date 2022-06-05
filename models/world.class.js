@@ -15,14 +15,22 @@ class World {
         new BackgroundObject('img/5.Fondo/Capas/2.Fondo2/1.png', 0),
         new BackgroundObject('img/5.Fondo/Capas/1.suelo-fondo1/1.png', 0),
     ];
+
+    //.... -> =0
     canvas;
     ctx;
+    keyboard;
 
-
-    constructor(canvas)  {
+    constructor(canvas, keyboard)  {
         this.ctx = canvas.getContext('2d'); 
         this.canvas = canvas; 
+        this.keyboard = keyboard;
         this.draw();
+        this.setWorld(); //um keyboad zu übergeben
+    }
+
+    setWorld() {
+        this.character.world = this; //nur this um die Instanz zu übergeben
     }
 
 /**
