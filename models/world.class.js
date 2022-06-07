@@ -21,9 +21,9 @@ class World {
     ctx;
     keyboard;
 
-    constructor(canvas, keyboard)  {
-        this.ctx = canvas.getContext('2d'); 
-        this.canvas = canvas; 
+    constructor(canvas, keyboard) {
+        this.ctx = canvas.getContext('2d');
+        this.canvas = canvas;
         this.keyboard = keyboard;
         this.draw();
         this.setWorld(); //um keyboad zu übergeben
@@ -33,10 +33,10 @@ class World {
         this.character.world = this; //nur this um die Instanz zu übergeben
     }
 
-/**
- *  correct Order for Z-Index on Canvas
- *  first Line, first Layer ....
- */
+    /**
+     *  correct Order for Z-Index on Canvas
+     *  first Line, first Layer ....
+     */
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -45,19 +45,30 @@ class World {
         this.addObjectsToMap(this.enemies);
         this.addToMap(this.character);
 
-        let self = this; 
-        requestAnimationFrame(function() { 
-            self.draw(); 
-    });
+        let self = this;
+        requestAnimationFrame(function () {
+            self.draw();
+        });
     }
 
-    addObjectsToMap(objects){
+    addObjectsToMap(objects) {
         objects.forEach(object => {
             this.addToMap(object);
         });
     }
-
+    //mo = movable-object
     addToMap(mo) {
+        if (mo.otherDirection) { //wird das object in eine andere Richtung bewegt?
+            this.ctx.save(); //Bilder speichern
+            this.ctx.translate(mo.width, 0);//den Sprung im Canvas korrigieren um die Breite des Character
+            this.ctx.scale(-1, 1);//bilder drehen
+            mo.x = mo.x * -1; //umdrehen der x coordinate
+        }
+
         this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
+        if (mo.otherDirection) { //wenn ctx verändert wurde, wird hier rückgängig gemacht
+            mo.x = mo.x * -1;
+            this.ctx.restore();
+        }
     }
 }
