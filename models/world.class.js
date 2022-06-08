@@ -6,7 +6,7 @@ class World {
     ctx;
     keyboard;
     camera_x = 0; //verschieben der Spielwelt
-
+    world_music = new Audio('audio/music1.mp3');
 
 
     constructor(canvas, keyboard) {
@@ -53,6 +53,8 @@ class World {
         this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.enemies);
         this.addToMap(this.character);
+
+        this.world_music.play();
 
         this.ctx.translate(-this.camera_x, 0); //am ende Auschnitt gegen korrigieren, sonst wäre Bild schwarz
 
