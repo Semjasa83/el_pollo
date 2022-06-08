@@ -37,8 +37,6 @@ class Character extends MovableObject {
 
         setInterval(() => {
             if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-               
-                //walk animation
                 let i = this.currentImage % this.IMAGES_WALKING.length; // let i = 5 % 6;   --> % Mathematischer Rest -> 0, Rest 5
                 // i = 0, 1, 2, 3, 4, 5, 0, 1 usw.
                 let path = this.IMAGES_WALKING[i];

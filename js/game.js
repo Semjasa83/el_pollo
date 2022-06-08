@@ -5,10 +5,7 @@ let keyboard = new Keyboard();
 function init() {
     canvas = document.getElementById('canvas'); //canvas vom HTML zugewiesen;
     world = new World(canvas, keyboard);
-
-    
     console.log('My Character is', world.character); // oder world[`character`]
-
 }
 
 /**
