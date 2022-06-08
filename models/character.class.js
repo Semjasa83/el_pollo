@@ -21,15 +21,15 @@ class Character extends MovableObject {
 
     animate() {
         setInterval(() => {
-            if(this.world.keyboard.RIGHT) {
+            if(this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x ) { //&&limitiert Level nach rechts
                this.x += this.speed;
                this.otherDirection = false;
             }
-            if(this.world.keyboard.LEFT) {
+            if(this.world.keyboard.LEFT && this.x > 0) { //&& Blockt den Char ab x = 0 beim Linkslauf 
                 this.x -= this.speed;
                 this.otherDirection = true;
              }
-             this.world.camera_x = - this.x;
+             this.world.camera_x = - this.x +50; //Char verschieben
         }, 1000/60);
 
         setInterval(() => {

@@ -1,32 +1,13 @@
 class World {
 
     character = new Character();
-    enemies = level1.enemies;
-    clouds = level1.clouds;
-    backgroundObjects = level1.backgroundObjects;
-
-    loopBackgroundsToMap() {
-        for (let j = 0; j < 3; j++) {
-
-            for (let i = 0; i < this.backgroundObjects.length; i++) {
-                const copy = Object.assign({}, this.backgroundObjects[i]);
-                // TODO kopiertes Object einbauen!!!
-                this.copy.x += 719 * j;
-                this.addToMap(this.copy);
-            }}
-        }
-    /*    
-        this.backgroundObjects.forEach( mo => {
-            mo.x += 719 * j;
-            this.addToMap(mo);
-        });
-        */
-
-    //.... -> =0
+    level = level1;
     canvas;
     ctx;
     keyboard;
     camera_x = 0; //verschieben der Spielwelt
+
+
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -40,6 +21,23 @@ class World {
         this.character.world = this; //nur this um die Instanz zu übergeben
     }
 
+    loopBackgroundsToMap() {
+        for (let j = 0; j < 3; j++) {
+
+            for (let i = 0; i < this.backgroundObjects.length; i++) {
+                const copy = Object.assign({}, this.backgroundObjects[i]);
+                this.copy.x += 719 * j;
+                this.addToMap(this.copy);
+            }}
+        }
+    /*    
+        this.backgroundObjects.forEach( mo => {
+            mo.x += 719 * j;
+            this.addToMap(mo);
+        });
+        */
+
+
     /**
      *  correct Order for Z-Index on Canvas
      *  first Line, first Layer ....
@@ -50,10 +48,10 @@ class World {
 
         this.ctx.translate(this.camera_x, 0); //Ausschnitt verschieben
 
-        this.addObjectsToMap(this.backgroundObjects);
+        this.addObjectsToMap(this.level.backgroundObjects);
         //this.loopBackgroundsToMap();
-        this.addObjectsToMap(this.clouds);
-        this.addObjectsToMap(this.enemies);
+        this.addObjectsToMap(this.level.clouds);
+        this.addObjectsToMap(this.level.enemies);
         this.addToMap(this.character);
 
         this.ctx.translate(-this.camera_x, 0); //am ende Auschnitt gegen korrigieren, sonst wäre Bild schwarz
