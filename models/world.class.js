@@ -24,9 +24,10 @@ class World {
         for (let j = 0; j < 3; j++) {
 
             for (let i = 0; i < this.backgroundObjects.length; i++) {
+                const copy = Object.assign({}, this.backgroundObjects[i]);
                 // TODO kopiertes Object einbauen!!!
-                this.backgroundObjects[i].x += 719 * j;
-                this.addToMap(this.backgroundObjects[i]);
+                this.copy.x += 719 * j;
+                this.addToMap(this.copy);
             }}
         }
     /*    
