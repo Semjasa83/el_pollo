@@ -10,15 +10,31 @@ class World {
         new Cloud()
     ];
     backgroundObjects = [
-        new BackgroundObject('img/5.Fondo/Capas/5.cielo_1920-1080px.png', 0),
-        new BackgroundObject('img/5.Fondo/Capas/3.Fondo3/1.png', 0),
-        new BackgroundObject('img/5.Fondo/Capas/2.Fondo2/1.png', 0),
-        new BackgroundObject('img/5.Fondo/Capas/1.suelo-fondo1/1.png', 0),
-        new BackgroundObject('img/5.Fondo/Capas/5.cielo_1920-1080px.png', 719),
-        new BackgroundObject('img/5.Fondo/Capas/3.Fondo3/2.png', 719),
-        new BackgroundObject('img/5.Fondo/Capas/2.Fondo2/2.png', 719),
-        new BackgroundObject('img/5.Fondo/Capas/1.suelo-fondo1/2.png', 719),
+        new BackgroundObject('img/5.Fondo/Capas/5.cielo_1920-1080px.png', -719 * 2),
+        new BackgroundObject('img/5.Fondo/Capas/3.Fondo3/1.png', -719 * 2),
+        new BackgroundObject('img/5.Fondo/Capas/2.Fondo2/1.png', -719 * 2),
+        new BackgroundObject('img/5.Fondo/Capas/1.suelo-fondo1/1.png', -719 * 2),
+        new BackgroundObject('img/5.Fondo/Capas/5.cielo_1920-1080px.png', -719),
+        new BackgroundObject('img/5.Fondo/Capas/3.Fondo3/2.png', -719),
+        new BackgroundObject('img/5.Fondo/Capas/2.Fondo2/2.png', -719),
+        new BackgroundObject('img/5.Fondo/Capas/1.suelo-fondo1/2.png', -719),
     ];
+
+    loopBackgroundsToMap() {
+        for (let j = 0; j < 3; j++) {
+
+            for (let i = 0; i < this.backgroundObjects.length; i++) {
+                // TODO kopiertes Object einbauen!!!
+                this.backgroundObjects[i].x += 719 * j;
+                this.addToMap(this.backgroundObjects[i]);
+            }}
+        }
+    /*    
+        this.backgroundObjects.forEach( mo => {
+            mo.x += 719 * j;
+            this.addToMap(mo);
+        });
+        */
 
     //.... -> =0
     canvas;
@@ -48,7 +64,8 @@ class World {
 
         this.ctx.translate(this.camera_x, 0); //Ausschnitt verschieben
 
-        this.addObjectsToMap(this.backgroundObjects);
+        //this.addObjectsToMap(this.backgroundObjects);
+        this.loopBackgroundsToMap();
         this.addObjectsToMap(this.clouds);
         this.addObjectsToMap(this.enemies);
         this.addToMap(this.character);
