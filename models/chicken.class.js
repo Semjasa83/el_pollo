@@ -31,5 +31,5 @@ class Chicken extends MovableObject{
 
 }
 
-//if x < -719 dann x = 3000
+//if x < -719 else x = 3000
 //TODO Respawn right if left arrived
