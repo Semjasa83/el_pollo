@@ -53,7 +53,7 @@ class World {
         this.addObjectsToMap(this.level.enemies);
         this.addToMap(this.character);
 
-        //this.world_music.play();
+        this.world_music.play(); // Hintergrund Musik, muss noch leiser gemacht werden, irgendwie.
 
         this.ctx.translate(-this.camera_x, 0); //am ende Auschnitt gegen korrigieren, sonst wäre Bild schwarz
 
