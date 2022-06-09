@@ -6,13 +6,10 @@ class MovableObject {
     x = 120;
     y = 245;
     img;
-    imgCloud;
     height = 200;
     width = 100;
     imageCache = {};
     currentImage = 0;
-    cloudCache = {};
-    currentCloud = 0;
     speed = 0.2;
     otherDirection = false;
 
@@ -33,12 +30,6 @@ class MovableObject {
             let img = new Image();
             img.src = path;
             this.imageCache[path] = img;
-
-        });
-        arr.forEach((pathC) => {
-            let imgCloud = new Image();
-            imgCloud.src = pathC;
-            this.cloudCache[pathC] = imgCloud;
 
         });
     }

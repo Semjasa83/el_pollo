@@ -8,7 +8,7 @@ class Cloud extends MovableObject {
     constructor() {
         super().loadImage('img/5.Fondo/Capas/4.nubes/completo.png');
         this.loadImages(this.CLOUD_IMAGE);
-        this.x = 250 + Math.random() * 3000; // muss ich verringern
+        this.x = 250 + Math.random() * 3000; // die meisten Spawnen fast auf der selben Stelle
         this.y = Math.random() * 90;
         this.animate();
     }
@@ -16,9 +16,12 @@ class Cloud extends MovableObject {
     animate() {
         this.moveLeft();
 
-        setInterval( () => {
+        /**
+         * habe bei movable_objects wieder die Sachen entfernt, siehe GIT vorheriger und jetziger COMMIT
+         */
+        setInterval( () => { 
             let i = this.CLOUD_IMAGE.length; 
-            let clouds = this.CLOUD_IMAGE[i];
+            let pathC = this.CLOUD_IMAGE[i];
             this.img = this.cloudCache[pathC];
             this.currentCloud++;
         }, 250);
