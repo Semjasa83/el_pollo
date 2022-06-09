@@ -4,7 +4,7 @@
 
 class MovableObject {
     x = 120;
-    y = 240;
+    y = 245;
     img;
     height = 200;
     width = 100;
