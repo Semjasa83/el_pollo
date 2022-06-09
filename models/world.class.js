@@ -22,12 +22,11 @@ class World {
     }
 
     loopBackgroundsToMap() {
-        for (let j = 0; j < 3; j++) {
-
-            for (let i = 0; i < this.backgroundObjects.length; i++) {
-                const copy = Object.assign({}, this.backgroundObjects[i]);
-                this.copy.x += 719 * j;
-                this.addToMap(this.copy);
+        for (let j = 0; j < 8; j += 2) {
+            for (let i = 0; i < this.level.backgroundObjects.length; i++) {
+                const copy = Object.assign({}, this.level.backgroundObjects[i]);
+                copy.x = copy.x + 719 * j;
+                this.addToMap(copy);
             }}
         }
     /*    
@@ -47,8 +46,8 @@ class World {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.translate(this.camera_x, 0); //Ausschnitt verschieben
 
-        this.addObjectsToMap(this.level.backgroundObjects);
-        //this.loopBackgroundsToMap();
+        //this.addObjectsToMap(this.level.backgroundObjects);
+        this.loopBackgroundsToMap();
         this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.enemies);
         this.addToMap(this.character);

@@ -12,7 +12,7 @@ class Chicken extends MovableObject{
     constructor() {
         super().loadImage('img/3.Secuencias_Enemy_b sico/Versi¢n_Gallinita (estas salen por orden de la gallina gigantona)/1.Ga_paso_derecho.png');  
         this.loadImages(this.IMAGES_WALKING);
-        this.x = 250 + Math.random() * 3000; 
+        this.x = 450 + Math.random() * 3000; 
         this.speed = 0.25 + Math.random() * 0.55; //-> moveLeft -> movable object
                 
         this.animate();
@@ -30,3 +30,6 @@ class Chicken extends MovableObject{
     }
 
 }
+
+//if x < -719 dann x = 3000
+//TODO Respawn right if left arrived
