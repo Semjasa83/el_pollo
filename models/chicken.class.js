@@ -10,17 +10,23 @@ class Chicken extends MovableObject {
     ];
     chicken_kill_sound = new Audio('audio/chicken.mp3');
 
+/**
+* override from speed at movable-objects.class.js
+* 
+* @param {speed} - sets speed for Chicken, with random Speed
+*/
+
     constructor() {
         super().loadImage('img/3.Secuencias_Enemy_b_sico/Versi¢n_Gallinita (estas salen por orden de la gallina gigantona)/1.Ga_paso_derecho.png');
         this.loadImages(this.IMAGES_WALKING);
         this.x = 450 + Math.random() * 3000;
-        this.speed = 0.25 + Math.random() * 0.55; //-> moveLeft -> movable object
+        this.speed = 0.25 + Math.random() * 0.55;
 
         this.animate();
     }
 
     animate() {
-        this.moveLeft(); // -> movable-object -> speed
+        this.moveLeft(); // speed -> movable-object
 
         setInterval(() => {
             let i = this.currentImage % this.IMAGES_WALKING.length;
@@ -32,7 +38,7 @@ class Chicken extends MovableObject {
 
 }
 
-/*        if (this.x < -791) {
+/*  if (this.x < -791) {
     this.x = 3000;
 }
 */

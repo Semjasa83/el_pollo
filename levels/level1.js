@@ -1,3 +1,9 @@
+/**
+ * the more objects are entered, the more will be rendered in the game.
+ * 
+ * @param {Array} array - sets the Enemies for Level 1
+ */
+
 const level1 = new Level(
     [
         new Chicken(),

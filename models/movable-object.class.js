@@ -1,8 +1,3 @@
-
-/**
- * x and y are Startpoints.
- */
-
  class MovableObject {
     x = 120;
     y = 245;
@@ -14,13 +9,18 @@
     speed = 0.2;
     otherDirection = false;
 
-    //loadImage('img/test.png');
+    /**
+     * Abbreviation for the path specification of the images
+     * 
+     * @param {*} path - example loadImage('img/test.png')
+     */
     loadImage(path) {
         this.img = new Image();
         this.img.src = path;
     }
 
     /**
+     * integrates the images including the path into the global variable "img"
      * 
      * @param {Array} arr - ['img/image1.png', 'img/image2.png', ....]
      * arr = [character] -> imagesWalking

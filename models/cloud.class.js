@@ -1,13 +1,19 @@
 class Cloud extends MovableObject {
+
+/**
+* override from speed at movable-objects.class.js
+* 
+* @param {speed} - sets speed for Clouds
+*/
     y = 20;
     height = 300;
     width = 1000;
-    speed = 0.2 + Math.random() * 1;
-    //speed => movable-objects.class.js
+    speed = 0.1 + Math.random() * 1;
+
 
     constructor() {
         super().loadImage('img/5.Fondo/Capas/4.nubes/completo.png');
-        this.x = 250 + Math.random() * 3000; // die meisten Spawnen fast auf der selben Stelle
+        this.x = 250 + Math.random() * 3000; //Spawn for Clouds
         this.y = Math.random() * 90;
         this.animate();
     }

@@ -9,6 +9,11 @@ class World {
     camera_x = 0; //verschieben der Spielwelt
     world_music = new Audio('audio/music1.mp3');
 
+    /**
+     * 
+     * @param {HTML canvas} canvas - for drawing Canvas on HTML
+     * @param {Key Eventlistener} keyboard - wait for Keydown and Keyup
+     */
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -18,8 +23,11 @@ class World {
         this.setWorld(); //um keyboad zu übergeben
     }
 
+    /**
+     * for hand over the Instanz 
+     */
     setWorld() {
-        this.character.world = this; //nur this um die Instanz zu übergeben
+        this.character.world = this; 
     }
 
     loopBackgroundsToMap() {
@@ -46,7 +54,7 @@ class World {
 
         //this.world_music.play(); // Hintergrund Musik, muss noch leiser gemacht werden, irgendwie.
 
-        this.ctx.translate(-this.camera_x, 0); //am ende Auschnitt gegen korrigieren, sonst wäre Bild schwarz
+        this.ctx.translate(-this.camera_x, 0);
 
         let self = this;
         requestAnimationFrame(function () {
@@ -54,22 +62,32 @@ class World {
         });
     }
 
+    /**
+     * put objects into Canvas 
+     * 
+     * @param {*} objects - all objects on Canvas
+     */
     addObjectsToMap(objects) {
         objects.forEach(object => {
             this.addToMap(object);
         });
     }
-    //mo = movable-object
+
+    /**
+     * adds to Map / Canvas all Inputs from Movable-Objects.class.js
+     * 
+     * @param {*} mo - movable-object 
+     */
     addToMap(mo) {
         if (mo.otherDirection) { //wird das object in eine andere Richtung bewegt?
-            this.ctx.save(); //Bilder speichern
-            this.ctx.translate(mo.width, 0);//den Sprung im Canvas korrigieren um die Breite des Character
-            this.ctx.scale(-1, 1);//bilder drehen
-            mo.x = mo.x * -1; //umdrehen der x coordinate
+            this.ctx.save(); //save Pictures
+            this.ctx.translate(mo.width, 0);//closes the gap at Canvas to Character 
+            this.ctx.scale(-1, 1);//swap Pictures from Right to Left if needed
+            mo.x = mo.x * -1; //swaps the x - coordinates
         }
 
         this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
-        if (mo.otherDirection) { //wenn ctx verändert wurde, wird hier rückgängig gemacht
+        if (mo.otherDirection) { //if ctx has been changed, it is undone here
             mo.x = mo.x * -1;
             this.ctx.restore();
         }

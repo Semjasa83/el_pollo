@@ -2,14 +2,19 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
+/**
+ * Initialisation from Canvas on HTML
+ */
 function init() {
-    canvas = document.getElementById('canvas'); //canvas vom HTML zugewiesen;
+    canvas = document.getElementById('canvas'); 
     world = new World(canvas, keyboard);
     console.log('My Character is', world.character); // oder world[`character`]
 }
 
 /**
- * function out of movable, for testing
+ * Key Eventlistener for movement by Character Pepe
+ * 
+ * @param {} e - Keyboard Eventlistener at Keydown / Keyup
  */
 
 document.addEventListener('keydown', (e) => {

@@ -11,11 +11,14 @@ class Character extends MovableObject {
         'img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-25.png',
         'img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-26.png'
     ]
-    world; //um auf die Variablen der Welt incl Keyboard zugreifen zu können
+    /**
+     * @param {*} world - to be able to access the variables of the world including the keyboard
+     */
+    world; 
     walking_sound = new Audio('audio/running.mp3')
 
-    constructor() { //ist bei jeder Klasse als erstes ausgeführt, wenn sie neu erstellt wird.
-        super().loadImage('img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-21.png'); //super = lädt von der übergeordneten Class die loadImage
+    constructor() { 
+        super().loadImage('img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-21.png');
         this.loadImages(this.IMAGES_WALKING);
         this.animate();
     }
@@ -23,17 +26,17 @@ class Character extends MovableObject {
     animate() {
         setInterval(() => {
             this.walking_sound.pause();
-            if(this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x ) { //&&limitiert Level nach rechts
+            if(this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x ) { //&&limits the Level on Right Side - End from Level
                this.x += this.speed;
                this.otherDirection = false;
                this.walking_sound.play();
             }
-            if(this.world.keyboard.LEFT && this.x > 0) { //&& Blockt den Char ab x = 0 beim Linkslauf 
+            if(this.world.keyboard.LEFT && this.x > 0) { //&& blocks the x direction at 0 for the player
                 this.x -= this.speed;
                 this.otherDirection = true;
                 this.walking_sound.play();
              }
-             this.world.camera_x = - this.x +50; //Char verschieben
+             this.world.camera_x = - this.x +50; //positions the character 50px away from the border
         }, 1000/60);
 
         setInterval(() => {
