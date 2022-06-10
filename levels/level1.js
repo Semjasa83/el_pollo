@@ -20,7 +20,6 @@ const level1 = new Level(
         new Cloud(),
         new Cloud(),
         new Cloud(),
-        new Cloud(),
     ],
     [
         new BackgroundObject('img/5.Fondo/Capas/5.cielo_1920-1080px.png', -719 * 2),
