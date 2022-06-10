@@ -1,8 +1,9 @@
+
 /**
  * x and y are Startpoints.
  */
 
-class MovableObject {
+ class MovableObject {
     x = 120;
     y = 245;
     img;

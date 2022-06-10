@@ -13,7 +13,7 @@ class Cloud extends MovableObject {
     }
 
     animate() {
-        if (this.x > 0) {
+        if (this.x > -100) {
             this.moveLeft();
 
         } else {
