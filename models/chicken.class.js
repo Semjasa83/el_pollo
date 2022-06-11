@@ -34,6 +34,16 @@ class Chicken extends MovableObject {
             this.img = this.imageCache[path];
             this.currentImage++;
         }, 250);
+
+        setInterval( () => {
+            //console.log(this.speed,this.x);
+        if (this.x > -100) {
+            this.x -= this.speed;
+        } else {
+            this.x = 3200;
+            this.x -= this.speed;
+        }
+        }, 1000 / 60);
     }
 
 }

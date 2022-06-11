@@ -5,26 +5,28 @@ class Cloud extends MovableObject {
 * 
 * @param {speed} - sets speed for Clouds
 */
-    y = 20;
+    y = 0;
     height = 300;
     width = 1000;
-    speed = 0.1 + Math.random() * 1;
+    speed = 0.2 + Math.random() * 0.6;
 
 
     constructor() {
         super().loadImage('img/5.Fondo/Capas/4.nubes/completo.png');
-        this.x = 250 + Math.random() * 3000; //Spawn for Clouds
-        this.y = Math.random() * 90;
+        this.x = 200 + Math.random() * 3000; //Spawn for Clouds
+        this.y = 10 + Math.random() * 90;
         this.animate();
     }
 
     animate() {
-        if (this.x > -100) {
-            this.moveLeft();
-
+        setInterval( () => {
+            //console.log(this.speed,this.x);
+        if (this.x > -250) {
+            this.x -= this.speed;
         } else {
-            this.x = 3000;
-            this.moveLeft();
+            this.x = 3900;
+            this.x -= this.speed;
         }
+        }, 1000 / 60);
     }
 }
