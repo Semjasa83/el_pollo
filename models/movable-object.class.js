@@ -8,6 +8,21 @@
     currentImage = 0;
     speed = 0.2;
     otherDirection = false;
+    speedY = 0;
+    acceleration = 2.5;
+
+    applyGravity() {
+        setInterval(() => {
+            if(this.isAboveGroundI()) {
+            this.y -= this.speedY;
+            this.speedY -=this.acceleration;
+        }
+        },1000 / 25);
+    }
+
+    isAboveGround() {
+        return this.y < 180;
+    }
 
     /**
      * Abbreviation for the path specification of the images
@@ -35,6 +50,12 @@
         });
     }
 
+
+    /**
+     * Animation for Walking -> Chicken, Boss, Charakter, Clouds etc.
+     * 
+     * @param {variable} images - is IMAGES__WALKING from other Classes 
+     */
     playAnimation(images) {
         let i = this.currentImage % this.IMAGES_WALKING.length; // let i = 5 % 6;   --> % Mathematischer Rest -> 0, Rest 5  // i = 0, 1, 2, 3, 4, 5, 0, 1 usw.
         let path = images[i];
