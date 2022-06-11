@@ -1,6 +1,6 @@
  class MovableObject {
     x = 120;
-    y = 245;
+    y = 190;
     img;
     height = 200;
     width = 100;
@@ -33,6 +33,13 @@
             this.imageCache[path] = img;
 
         });
+    }
+
+    playAnimation(images) {
+        let i = this.currentImage % this.IMAGES_WALKING.length; // let i = 5 % 6;   --> % Mathematischer Rest -> 0, Rest 5  // i = 0, 1, 2, 3, 4, 5, 0, 1 usw.
+        let path = images[i];
+        this.img = this.imageCache[path];
+        this.currentImage++;
     }
 
     moveRight() {
