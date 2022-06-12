@@ -1,6 +1,6 @@
 
 class Chicken extends MovableObject {
-    y = 380;
+    y = 373;
     height = 50;
     width = 50;
     IMAGES_WALKING = [
@@ -26,14 +26,15 @@ class Chicken extends MovableObject {
     }
 
     animate() {
-        this.moveLeft(); // speed -> movable-object
+        setInterval( () => { // for moving left the Chickens
+            this.x -= this.speed;
+        }, 1000 / 60);
 
         setInterval(() => {
             this.playAnimation(this.IMAGES_WALKING);
         }, 250);
 
         setInterval(() => {
-            //console.log(this.speed,this.x);
             if (this.x > -100) {
                 this.x -= this.speed;
             } else {
@@ -42,11 +43,4 @@ class Chicken extends MovableObject {
             }
         }, 1000 / 60);
     }
-
 }
-
-/*  if (this.x < -791) {
-    this.x = 3000;
-}
-*/
-//TODO Respawn right if left arrived

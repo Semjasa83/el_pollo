@@ -13,7 +13,7 @@
 
     applyGravity() {
         setInterval(() => {
-            if(this.isAboveGroundI()) {
+            if(this.isAboveGround() || this.speedY > 0) {
             this.y -= this.speedY;
             this.speedY -=this.acceleration;
         }
@@ -21,7 +21,7 @@
     }
 
     isAboveGround() {
-        return this.y < 180;
+        return this.y < 190;
     }
 
     /**
@@ -29,6 +29,7 @@
      * 
      * @param {*} path - example loadImage('img/test.png')
      */
+
     loadImage(path) {
         this.img = new Image();
         this.img.src = path;
@@ -50,7 +51,6 @@
         });
     }
 
-
     /**
      * Animation for Walking -> Chicken, Boss, Charakter, Clouds etc.
      * 
@@ -64,15 +64,17 @@
     }
 
     moveRight() {
-        console.log('Moving right');
-
+        this.x += this.speed;
+        this.otherDirection = false;
     }
 
     moveLeft () {
-        setInterval( () => {
-            this.x -= this.speed;
-        }, 1000 / 60);
+        this.x -= this.speed;
+        this.otherDirection = true;
     }
 
+    jump() {
+        this.speedY = 35; //for Jump Height
+    }
 
 }
