@@ -59,9 +59,9 @@ class Character extends MovableObject {
                 this.moveLeft();
                 this.walking_sound.play();
             }
-            if (this.world.keyboard.UP && !this.isAboveGround()){
+            if (this.world.keyboard.SPACE && !this.isAboveGround()){
                 this.jump();
-                this.jumping_sound.play();
+                //this.jumping_sound.play();
             }
 
             this.world.camera_x = - this.x + 50; //positions the character 50px away from the border
@@ -81,6 +81,6 @@ class Character extends MovableObject {
                     this.playAnimation(this.IMAGES_WALKING);
                 }
             }
-        }, 50);
+        }, 120);
     }
 }
