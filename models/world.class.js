@@ -26,6 +26,7 @@ class World {
     /**
      * for hand over the Instanz 
      */
+
     setWorld() {
         this.character.world = this; 
     }
@@ -67,6 +68,7 @@ class World {
      * 
      * @param {*} objects - all objects on Canvas
      */
+
     addObjectsToMap(objects) {
         objects.forEach(object => {
             this.addToMap(object);
@@ -78,20 +80,20 @@ class World {
      * 
      * @param {*} mo - movable-object 
      */
+
     addToMap(mo) {
         if (mo.otherDirection) { //wird das object in eine andere Richtung bewegt?
             this.flipImage(mo);
         }
-        mo.drawObjects(this.ctx);
-        //this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
-        mo.drawFrame(this.ctx);
-        /*
+        //mo.drawObjects(this.ctx);
+        //mo.drawFrame(this.ctx);
+        this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
+        
         this.ctx.beginPath();
         this.ctx.lineWidth = '1';
         this.ctx.strokeStyle = 'blue';
         this.ctx.rect(mo.x, mo.y, mo.width, mo.height);
         this.ctx.stroke();
-*/
 
         if (mo.otherDirection) { //if ctx has been changed, it is undone here
             this.flipImageBack(mo);

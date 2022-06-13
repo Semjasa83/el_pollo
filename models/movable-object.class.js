@@ -14,6 +14,7 @@
     /**
      * sets Gravitation Speed if a class is above the Ground
      */
+
     applyGravity() {
         setInterval(() => {
             if(this.isAboveGround() || this.speedY > 0) {
@@ -53,7 +54,7 @@
 
         });
     }
-
+/*
     drawObjects(ctx) {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
@@ -65,12 +66,13 @@
         ctx.rect(this.x, this.y, this.width, this.height);
         ctx.stroke();
     }
-
+*/
     /**
      * Animation for Walking -> Chicken, Boss, Charakter, Clouds etc.
      * 
      * @param {variable} images - is IMAGES__WALKING from other Classes 
      */
+
     playAnimation(images) {
         let i = this.currentImage % this.IMAGES_WALKING.length; // let i = 5 % 6;   --> % Mathematischer Rest -> 0, Rest 5  // i = 0, 1, 2, 3, 4, 5, 0, 1 usw.
         let path = images[i];
