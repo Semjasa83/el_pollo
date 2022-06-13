@@ -85,8 +85,16 @@ class World {
             this.ctx.scale(-1, 1);//swap Pictures from Right to Left if needed
             mo.x = mo.x * -1; //swaps the x - coordinates
         }
+        mo.drawObjects(this.ctx);
+        //this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
+        /*
+        this.ctx.beginPath();
+        this.ctx.lineWidth = '1';
+        this.ctx.strokeStyle = 'blue';
+        this.ctx.rect(mo.x, mo.y, mo.width, mo.height);
+        this.ctx.stroke();
+*/
 
-        this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
         if (mo.otherDirection) { //if ctx has been changed, it is undone here
             mo.x = mo.x * -1;
             this.ctx.restore();

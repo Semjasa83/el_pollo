@@ -11,6 +11,9 @@
     speedY = 0;
     acceleration = 2.5;
 
+    /**
+     * sets Gravitation Speed if a class is above the Ground
+     */
     applyGravity() {
         setInterval(() => {
             if(this.isAboveGround() || this.speedY > 0) {
@@ -49,6 +52,10 @@
             this.imageCache[path] = img;
 
         });
+    }
+
+    drawObjects(ctx) {
+        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
 
     /**
