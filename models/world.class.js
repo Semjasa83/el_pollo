@@ -80,10 +80,7 @@ class World {
      */
     addToMap(mo) {
         if (mo.otherDirection) { //wird das object in eine andere Richtung bewegt?
-            this.ctx.save(); //save Pictures
-            this.ctx.translate(mo.width, 0);//closes the gap at Canvas to Character 
-            this.ctx.scale(-1, 1);//swap Pictures from Right to Left if needed
-            mo.x = mo.x * -1; //swaps the x - coordinates
+            this.flipImage(mo);
         }
         mo.drawObjects(this.ctx);
         //this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
@@ -100,5 +97,12 @@ class World {
             mo.x = mo.x * -1;
             this.ctx.restore();
         }
+    }
+
+    flipImage(mo) {
+        this.ctx.save(); //save Pictures
+        this.ctx.translate(mo.width, 0);//closes the gap at Canvas to Character 
+        this.ctx.scale(-1, 1);//swap Pictures from Right to Left if needed
+        mo.x = mo.x * -1; //swaps the x - coordinates
     }
 }
