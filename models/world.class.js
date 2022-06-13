@@ -94,8 +94,7 @@ class World {
 */
 
         if (mo.otherDirection) { //if ctx has been changed, it is undone here
-            mo.x = mo.x * -1;
-            this.ctx.restore();
+            this.flipImageBack(mo);
         }
     }
 
@@ -104,5 +103,10 @@ class World {
         this.ctx.translate(mo.width, 0);//closes the gap at Canvas to Character 
         this.ctx.scale(-1, 1);//swap Pictures from Right to Left if needed
         mo.x = mo.x * -1; //swaps the x - coordinates
+    }
+
+    flipImageBack(mo) {
+        mo.x = mo.x * -1;
+        this.ctx.restore();
     }
 }
