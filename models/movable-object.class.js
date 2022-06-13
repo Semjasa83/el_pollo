@@ -58,12 +58,12 @@
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
 
-    drawBorder(ctx) {
-        this.ctx.beginPath();
-        this.ctx.lineWidth = '1';
-        this.ctx.strokeStyle = 'blue';
-        this.ctx.rect(this.x, this.y, this.width, this.height);
-        this.ctx.stroke();
+    drawFrame(ctx) {
+        ctx.beginPath();
+        ctx.lineWidth = '1';
+        ctx.strokeStyle = 'blue';
+        ctx.rect(this.x, this.y, this.width, this.height);
+        ctx.stroke();
     }
 
     /**

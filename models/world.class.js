@@ -87,7 +87,7 @@ class World {
         }
         mo.drawObjects(this.ctx);
         //this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
-        mo.drawBorder(this.ctx);
+        mo.drawFrame(this.ctx);
         /*
         this.ctx.beginPath();
         this.ctx.lineWidth = '1';
