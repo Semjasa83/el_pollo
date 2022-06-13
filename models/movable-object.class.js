@@ -58,6 +58,14 @@
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
 
+    drawBorder(ctx) {
+        this.ctx.beginPath();
+        this.ctx.lineWidth = '1';
+        this.ctx.strokeStyle = 'blue';
+        this.ctx.rect(this.x, this.y, this.width, this.height);
+        this.ctx.stroke();
+    }
+
     /**
      * Animation for Walking -> Chicken, Boss, Charakter, Clouds etc.
      * 
