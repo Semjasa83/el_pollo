@@ -1,4 +1,4 @@
- class MovableObject {
+class MovableObject {
     x = 120;
     y = 190;
     img;
@@ -17,11 +17,11 @@
 
     applyGravity() {
         setInterval(() => {
-            if(this.isAboveGround() || this.speedY > 0) {
-            this.y -= this.speedY;
-            this.speedY -=this.acceleration;
-        }
-        },1000 / 25);
+            if (this.isAboveGround() || this.speedY > 0) {
+                this.y -= this.speedY;
+                this.speedY -= this.acceleration;
+            }
+        }, 1000 / 25);
     }
 
     isAboveGround() {
@@ -73,7 +73,7 @@
         this.otherDirection = false;
     }
 
-    moveLeft () {
+    moveLeft() {
         this.x -= this.speed;
         this.otherDirection = true;
     }
@@ -81,19 +81,26 @@
     jump() {
         this.speedY = 35; //for Jump Height
     }
-/*
-    drawImageObject(ctx) {
-        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-    }
-
-    drawFrame(mo) {
-        if(mo instanceof Character || mo instanceof Chicken){
-        ctx.beginPath();
-        ctx.lineWidth = '1';
-        ctx.strokeStyle = 'blue';
-        ctx.rect(this.x, this.y, this.width, this.height);
-        ctx.stroke();
+    /*
+        drawImageObject(ctx) {
+            ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
         }
+    
+        drawFrame(mo) {
+            if(mo instanceof Character || mo instanceof Chicken){
+            ctx.beginPath();
+            ctx.lineWidth = '1';
+            ctx.strokeStyle = 'blue';
+            ctx.rect(this.x, this.y, this.width, this.height);
+            ctx.stroke();
+            }
+        }
+    */
+   // character.isColliging(chicken);
+    isColliding(mo) {
+        return this.x + this.width > mo.x &&
+            this.y + this.height > mo.y &&
+            this.x < mo.x &&
+            this.y < mo.y + mo.height;
     }
-*/
 }
