@@ -48,7 +48,7 @@ class World {
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.translate(this.camera_x, 0); //Ausschnitt verschieben
-        this.loopBackgroundsToMap();
+        //this.loopBackgroundsToMap();
         this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.enemies);
         this.addToMap(this.character);
@@ -86,6 +86,8 @@ class World {
         if (mo.otherDirection) { //wird das object in eine andere Richtung bewegt?
             this.flipImage(mo);
         }
+        //mo.draw(this.ctx);
+        //mo.drawFrame(this.ctx);
         this.drawImageObject(mo);
         this.drawFrame(mo);
         if (mo.otherDirection) { //if ctx has been changed, it is undone here
@@ -103,6 +105,7 @@ class World {
      * add more Objects with || mo instanceof CLASS
      * @param {path} mo - path to your Classes in Level.class.js
      */
+
     drawFrame(mo) {
         if(mo instanceof Character || mo instanceof Chicken){
         this.ctx.beginPath();

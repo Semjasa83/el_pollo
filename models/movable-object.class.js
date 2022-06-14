@@ -31,7 +31,7 @@
     /**
      * Abbreviation for the path specification of the images
      * 
-     * @param {path} path - example loadImage('img/test.png')
+     * @param {*} path - example loadImage('img/test.png')
      */
 
     loadImage(path) {
@@ -81,5 +81,19 @@
     jump() {
         this.speedY = 35; //for Jump Height
     }
+/*
+    drawImageObject(ctx) {
+        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    }
 
+    drawFrame(mo) {
+        if(mo instanceof Character || mo instanceof Chicken){
+        ctx.beginPath();
+        ctx.lineWidth = '1';
+        ctx.strokeStyle = 'blue';
+        ctx.rect(this.x, this.y, this.width, this.height);
+        ctx.stroke();
+        }
+    }
+*/
 }
