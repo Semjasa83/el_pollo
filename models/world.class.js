@@ -65,8 +65,9 @@ class World {
 
     /**
      * put objects into Canvas 
+     * level.clouds / level. enemies etc.
      * 
-     * @param {*} objects - all objects on Canvas
+     * @param {path} objects - all objects on Canvas
      */
 
     addObjectsToMap(objects) {
@@ -76,24 +77,34 @@ class World {
     }
 
     /**
-     * adds to Map / Canvas all Inputs from Movable-Objects.class.js
-     * 
-     * @param {*} mo - movable-object 
+     * shown in addObjectsToMap "objects"
+     * level.clouds / level.enemies
+     * @param {path} mo - objects -> level.clouds / level.enemies etc. 
      */
 
     addToMap(mo) {
         if (mo.otherDirection) { //wird das object in eine andere Richtung bewegt?
             this.flipImage(mo);
         }
-        this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
-        mo.drawFrame(this.ctx);
+        this.drawImageObject(mo);
+        this.drawFrame(mo);
         if (mo.otherDirection) { //if ctx has been changed, it is undone here
             this.flipImageBack(mo);
         }
     }
-/*
+
+    drawImageObject(mo) {
+        this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
+    }
+
+    /**
+     * reactivate this Function in "addToMap" and here, if you want to optimize Collision
+     * shows Frames around your Objects
+     * add more Objects with || mo instanceof CLASS
+     * @param {path} mo - path to your Classes in Level.class.js
+     */
     drawFrame(mo) {
-        if(this instanceof Character || this instanceof Chicken){
+        if(mo instanceof Character || mo instanceof Chicken){
         this.ctx.beginPath();
         this.ctx.lineWidth = '1';
         this.ctx.strokeStyle = 'blue';
@@ -101,7 +112,7 @@ class World {
         this.ctx.stroke();
         }
     }
-*/
+
     flipImage(mo) {
         this.ctx.save(); //save Pictures
         this.ctx.translate(mo.width, 0);//closes the gap at Canvas to Character 

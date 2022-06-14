@@ -31,7 +31,7 @@
     /**
      * Abbreviation for the path specification of the images
      * 
-     * @param {*} path - example loadImage('img/test.png')
+     * @param {path} path - example loadImage('img/test.png')
      */
 
     loadImage(path) {
@@ -53,20 +53,6 @@
             this.imageCache[path] = img;
 
         });
-    }
-/*
-    drawObjects(ctx) {
-        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-    }
-*/
-    drawFrame(ctx) {
-        if(this instanceof Character || this instanceof Chicken){
-        ctx.beginPath();
-        ctx.lineWidth = '1';
-        ctx.strokeStyle = 'blue';
-        ctx.rect(this.x, this.y, this.width, this.height);
-        ctx.stroke();
-        }
     }
 
     /**
