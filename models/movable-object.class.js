@@ -58,15 +58,17 @@
     drawObjects(ctx) {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
-
+*/
     drawFrame(ctx) {
+        if(this instanceof Character || this instanceof Chicken){
         ctx.beginPath();
         ctx.lineWidth = '1';
         ctx.strokeStyle = 'blue';
         ctx.rect(this.x, this.y, this.width, this.height);
         ctx.stroke();
+        }
     }
-*/
+
     /**
      * Animation for Walking -> Chicken, Boss, Charakter, Clouds etc.
      * 

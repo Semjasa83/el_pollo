@@ -21,7 +21,7 @@ class Cloud extends MovableObject {
     animate() {
         setInterval( () => {
             //console.log(this.speed,this.x);
-        if (this.x > -250) {
+        if (this.x > -1000) {
             this.x -= this.speed;
         } else {
             this.x = 3900;

@@ -85,21 +85,23 @@ class World {
         if (mo.otherDirection) { //wird das object in eine andere Richtung bewegt?
             this.flipImage(mo);
         }
-        //mo.drawObjects(this.ctx);
-        //mo.drawFrame(this.ctx);
         this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
-        
+        mo.drawFrame(this.ctx);
+        if (mo.otherDirection) { //if ctx has been changed, it is undone here
+            this.flipImageBack(mo);
+        }
+    }
+/*
+    drawFrame(mo) {
+        if(this instanceof Character || this instanceof Chicken){
         this.ctx.beginPath();
         this.ctx.lineWidth = '1';
         this.ctx.strokeStyle = 'blue';
         this.ctx.rect(mo.x, mo.y, mo.width, mo.height);
         this.ctx.stroke();
-
-        if (mo.otherDirection) { //if ctx has been changed, it is undone here
-            this.flipImageBack(mo);
         }
     }
-
+*/
     flipImage(mo) {
         this.ctx.save(); //save Pictures
         this.ctx.translate(mo.width, 0);//closes the gap at Canvas to Character 
