@@ -10,7 +10,7 @@ class MovableObject {
     otherDirection = false;
     speedY = 0;
     acceleration = 2.5;
-
+    energy = 100;
     /**
      * sets Gravitation Speed if a class is above the Ground
      */
