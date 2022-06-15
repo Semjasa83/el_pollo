@@ -38,7 +38,7 @@ class Chicken extends MovableObject {
             if (this.x > -100) {
                 this.x -= this.speed;
             } else {
-                this.x = 3200;
+                this.x = 2600;
                 this.x -= this.speed;
             }
         }, 1000 / 60);

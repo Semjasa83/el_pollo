@@ -36,8 +36,8 @@ class World {
         setInterval(() => {
             this.level.enemies.forEach((enemy) => {
                 if(this.character.isColliding(enemy)){
-                    this.character.energy -= 5; //dmg ratio for hit
-                    console.log('Collision with Character, energy ', this.character.energy)
+                    this.character.hit();
+                    //console.log('Collision with Character, energy ', this.character.energy)
                 }
             });
         },200);
