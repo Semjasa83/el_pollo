@@ -1,11 +1,5 @@
-class MovableObject {
-    x = 120;
-    y = 190;
-    img;
-    height = 200;
-    width = 100;
-    imageCache = {};
-    currentImage = 0;
+class MovableObject extends DrawableObject {
+
     speed = 0.2;
     otherDirection = false;
     speedY = 0;
@@ -28,33 +22,6 @@ class MovableObject {
 
     isAboveGround() {
         return this.y < 190;
-    }
-
-    /**
-     * Abbreviation for the path specification of the images
-     * 
-     * @param {*} path - example loadImage('img/test.png')
-     */
-
-    loadImage(path) {
-        this.img = new Image();
-        this.img.src = path;
-    }
-
-    /**
-     * integrates the images including the path into the global variable "img"
-     * 
-     * @param {Array} arr - ['img/image1.png', 'img/image2.png', ....]
-     * arr = [character] -> imagesWalking
-     */
-
-    loadImages(arr) {
-        arr.forEach((path) => {
-            let img = new Image();
-            img.src = path;
-            this.imageCache[path] = img;
-
-        });
     }
 
     /**
