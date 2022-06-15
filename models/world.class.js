@@ -7,6 +7,7 @@ class World {
     ctx;
     keyboard;
     camera_x = 0; //verschieben der Spielwelt
+    statusBar = new statusBar();
     world_music = new Audio('audio/music1.mp3');
 
     /**
@@ -64,6 +65,7 @@ class World {
         this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.enemies);
         this.addToMap(this.character);
+        this.addToMap(this.statusBar);
 
         //this.world_music.play(); // Hintergrund Musik, muss noch leiser gemacht werden, irgendwie.
 
