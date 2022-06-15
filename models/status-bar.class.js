@@ -1,12 +1,12 @@
-class StatusBar {
+class StatusBar extends DrawableObject{
 
     IMAGES = [
-        'img/7.Marcadores/Barra/Marcador vida/Naranja/0_ .png',
-        'img/7.Marcadores/Barra/Marcador vida/Naranja/20_ .png',
-        'img/7.Marcadores/Barra/Marcador vida/Naranja/40_ .png',
-        'img/7.Marcadores/Barra/Marcador vida/Naranja/60_ .png',
-        'img/7.Marcadores/Barra/Marcador vida/Naranja/80_ .png',
-        'img/7.Marcadores/Barra/Marcador vida/Naranja/100_ .png'
+        'img/7.Marcadores/Barra/Marcador vida/Naranja/0_.png',
+        'img/7.Marcadores/Barra/Marcador vida/Naranja/20_.png',
+        'img/7.Marcadores/Barra/Marcador vida/Naranja/40_.png',
+        'img/7.Marcadores/Barra/Marcador vida/Naranja/60_.png',
+        'img/7.Marcadores/Barra/Marcador vida/Naranja/80_.png',
+        'img/7.Marcadores/Barra/Marcador vida/Naranja/100_.png'
     ]
 
     percentage = 100;
