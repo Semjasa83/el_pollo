@@ -7,7 +7,7 @@ class World {
     ctx;
     keyboard;
     camera_x = 0; //verschieben der Spielwelt
-    statusBar = new statusBar();
+    statusBar = new StatusBar();
     world_music = new Audio('audio/music1.mp3');
 
     /**

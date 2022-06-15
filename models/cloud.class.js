@@ -12,7 +12,7 @@ class Cloud extends MovableObject {
 
 
     constructor() {
-        super().loadImage('img/5.Fondo/Capas/4.nubes/completo.png');
+        super().loadImage('img/5.Fondo/Capas/4.nubes/Completo.png');
         this.x = 200 + Math.random() * 3000; //Spawn for Clouds
         this.y = 10 + Math.random() * 90;
         this.animate();
