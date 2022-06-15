@@ -98,8 +98,6 @@ class World {
         if (mo.otherDirection) { //wird das object in eine andere Richtung bewegt?
             this.flipImage(mo);
         }
-        //mo.draw(this.ctx);
-        //mo.drawFrame(this.ctx);
         this.drawImageObject(mo);
         this.drawFrame(mo);
         if (mo.otherDirection) { //if ctx has been changed, it is undone here
