@@ -64,8 +64,9 @@ class World {
         this.loopBackgroundsToMap();
         this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.enemies);
-        this.addToMap(this.character);
         this.addToMap(this.statusBar);
+        this.addToMap(this.character);
+
 
         //this.world_music.play(); // Hintergrund Musik, muss noch leiser gemacht werden, irgendwie.
 
