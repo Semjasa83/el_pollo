@@ -48,6 +48,8 @@ class Character extends MovableObject {
     world;
     walking_sound = new Audio('audio/running.mp3');
     jumping_sound = new Audio('audio/jump.mp3');
+    hurt_sound = new Audio('audio/hurt.mp3');
+    died_sound = new Audio('audio/died.mp3');
 
     constructor() {
         super().loadImage('img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-21.png');
@@ -79,7 +81,7 @@ class Character extends MovableObject {
             }
             if (this.world.keyboard.SPACE && !this.isAboveGround()) {
                 this.jump();
-                //this.jumping_sound.play();
+                this.jumping_sound.play();
             }
 
             this.world.camera_x = - this.x + 50; //positions the character 50px away from the border

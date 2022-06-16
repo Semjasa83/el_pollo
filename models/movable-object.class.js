@@ -63,8 +63,10 @@ class MovableObject extends DrawableObject {
         this.energy -= 5; //dmg ratio for hit
         if (this.energy < 0) {
             this.energy = 0;
+            //this.died_sound.play();
         } else {
             this.lastHit = new Date().getTime();
+            //this.hurt_sound.play();
         }
     }
 
