@@ -85,7 +85,7 @@ class World {
         //this.ctx.translate(this.camera_x, 0); //Forward
 
         this.addToMap(this.character);
-        this.world_music.play(); // Hintergrund Musik, muss noch leiser gemacht werden, irgendwie.
+        //this.world_music.play(); // Hintergrund Musik, muss noch leiser gemacht werden, irgendwie.
         this.ctx.translate(-this.camera_x, 0);
         let self = this;
         requestAnimationFrame(function () {
