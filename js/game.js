@@ -38,6 +38,9 @@ document.addEventListener('keydown', (e) => {
         keyboard.SPACE = true;
     }
 
+    if(e.keyCode == 68 ) {
+        keyboard.D = true;
+    }
     //console.log(e);
 });
 
@@ -62,5 +65,8 @@ document.addEventListener('keyup', (e) => {
         keyboard.SPACE = false;
     }
 
+    if(e.keyCode == 68 ) {
+        keyboard.D = false;
+    }
     //console.log(e);
 });

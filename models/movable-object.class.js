@@ -21,8 +21,11 @@ class MovableObject extends DrawableObject {
     }
 
     isAboveGround() {
+        if (this instanceof ThrowableObject){ //Throwable shut always fall
+            return true;
+        } else {
         return this.y < 190;
-    }
+    }}
 
     /**
      * Animation for Walking -> Chicken, Boss, Charakter, Clouds etc.
@@ -51,6 +54,7 @@ class MovableObject extends DrawableObject {
         this.speedY = 35; //for Jump Height
     }
 
+
     // character.isColliging(chicken);
     isColliding(mo) {
         return this.x + this.width > mo.x &&
@@ -63,10 +67,10 @@ class MovableObject extends DrawableObject {
         this.energy -= 5; //dmg ratio for hit
         if (this.energy < 0) {
             this.energy = 0;
-            //this.died_sound.play();
+            this.died_sound.play();
         } else {
             this.lastHit = new Date().getTime();
-            //this.hurt_sound.play();
+            this.hurt_sound.play();
         }
     }
 

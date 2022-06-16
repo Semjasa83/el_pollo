@@ -8,6 +8,8 @@ class World {
     keyboard;
     camera_x = 0; //verschieben der Spielwelt
     statusBar = new StatusBar();
+    throwableObjects = [];
+    collectableObjects = [];
     world_music = new Audio('audio/music1.mp3');
 
     /**
@@ -22,7 +24,7 @@ class World {
         this.keyboard = keyboard;
         this.draw();
         this.setWorld(); //um keyboad zu übergeben
-        this.checkCollisions();
+        this.run();
     }
 
     /**
@@ -33,15 +35,28 @@ class World {
         this.character.world = this; 
     }
 
-    checkCollisions() {
+    run() {
         setInterval(() => {
-            this.level.enemies.forEach((enemy) => {
-                if(this.character.isColliding(enemy)){
-                    this.character.hit();
-                    //console.log('Collision with Character, energy ', this.character.energy)
-                }
-            });
+            this.checkCollisions();
+            this.checkThrowObjects();
         },200);
+    }
+
+    checkThrowObjects() {
+        if(this.keyboard.D){
+            let bottle = new ThrowableObject(this.character.x + 70, this.character.y + 110);
+            this.throwableObjects.push(bottle);
+        }
+    }
+
+    checkCollisions() {
+        this.level.enemies.forEach((enemy) => {
+            if(this.character.isColliding(enemy)){
+                this.character.hit();
+                this.statusBar.setPercentage(this.character.energy);
+                //console.log('Collision with Character, energy ', this.character.energy)
+            }
+        });
     }
 
     loopBackgroundsToMap() {
@@ -62,25 +77,27 @@ class World {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.translate(this.camera_x, 0); //Ausschnitt verschieben
         this.loopBackgroundsToMap();
+        this.addedObjects();
 
-        this.ctx.translate(this.camera_x, 0); //Back
+        //  this.ctx.translate(this.camera_x, 0); //Back
         // ----- Space for fixed objects ------
         this.addToMap(this.statusBar);
-        this.ctx.translate(this.camera_x, 0); //Forward
+        //this.ctx.translate(this.camera_x, 0); //Forward
 
-        this.addObjectsToMap(this.level.clouds);
-        this.addObjectsToMap(this.level.enemies);
         this.addToMap(this.character);
-
-
-        //this.world_music.play(); // Hintergrund Musik, muss noch leiser gemacht werden, irgendwie.
-
+        this.world_music.play(); // Hintergrund Musik, muss noch leiser gemacht werden, irgendwie.
         this.ctx.translate(-this.camera_x, 0);
-
         let self = this;
         requestAnimationFrame(function () {
             self.draw();
         });
+    }
+
+    addedObjects () {
+        this.addObjectsToMap(this.level.clouds);
+        this.addObjectsToMap(this.level.enemies);
+        this.addObjectsToMap(this.throwableObjects);
+        this.addObjectsToMap(this.collectableObjects);
     }
 
     /**
