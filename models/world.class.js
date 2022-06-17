@@ -8,6 +8,7 @@ class World {
     keyboard;
     camera_x = 0; //verschieben der Spielwelt
     statusBar = new StatusBar();
+    coinBar = new CoinBar();
     throwableObjects = [];
     collectableObjects = [];
     world_music = new Audio('audio/music1.mp3');
@@ -91,6 +92,7 @@ class World {
         this.ctx.translate(-this.camera_x, 0);
         // ----- Space for fixed objects ------
         this.addToMap(this.statusBar);
+        this.addToMap(this.CoinBar);
         this.ctx.translate(this.camera_x, 0);
     }
 
