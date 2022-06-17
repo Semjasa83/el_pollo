@@ -75,21 +75,28 @@ class World {
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.ctx.translate(this.camera_x, 0); //Ausschnitt verschieben
+        this.ctx.translate(this.camera_x, 0);
         this.addedObjects();
-
-        this.ctx.translate(-this.camera_x, 0); //Back
-        // ----- Space for fixed objects ------
-        this.addToMap(this.statusBar);
-        this.ctx.translate(this.camera_x, 0); //Forward
-
+        this.addFixedStatusBars();
         this.addToMap(this.character);
-        //this.world_music.play(); // Hintergrund Musik, muss noch leiser gemacht werden, irgendwie.
+        this.addedWorldMusic();
         this.ctx.translate(-this.camera_x, 0);
         let self = this;
         requestAnimationFrame(function () {
             self.draw();
         });
+    }
+
+    addFixedStatusBars() {
+        this.ctx.translate(-this.camera_x, 0);
+        // ----- Space for fixed objects ------
+        this.addToMap(this.statusBar);
+        this.ctx.translate(this.camera_x, 0);
+    }
+
+    addedWorldMusic() {
+        this.world_music.volume = 0.35; //set Volume for Music
+        this.world_music.play(); 
     }
 
     addedObjects () {
@@ -98,6 +105,8 @@ class World {
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.throwableObjects);
         this.addObjectsToMap(this.collectableObjects);
+        this.addObjectsToMap(this.level.bottles);
+        this.addObjectsToMap(this.level.coins);
     }
 
     /**
