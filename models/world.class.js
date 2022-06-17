@@ -78,7 +78,7 @@ class World {
         this.ctx.translate(this.camera_x, 0); //Ausschnitt verschieben
         this.addedObjects();
 
-        this.ctx.translate(this.camera_x, 0); //Back
+        this.ctx.translate(-this.camera_x, 0); //Back
         // ----- Space for fixed objects ------
         this.addToMap(this.statusBar);
         this.ctx.translate(this.camera_x, 0); //Forward
