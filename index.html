@@ -1,13 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg" href="img/other_img/favicon.svg">
     <link rel="stylesheet" href="style.css">
-    
+
     <script src="models/drawable-object.class.js"></script>
     <script src="models/movable-object.class.js"></script>
     <script src="models/character.class.js"></script>
@@ -29,14 +29,24 @@
     <script src="js/game.js"></script>
 
     <title>El Pollo loco</title>
-    
+
 
 </head>
+
 <body onload="init()">
-    <h1>El Pollo loco</h1>
-    <canvas id="canvas" width="720" height="480">
+    <h1 class="title">El Pollo loco</h1>
+    <div class="startscreen hide">
+        <img src="img/9.Intro_Outro_Image/Start_Screen/Option2.png">
+        <button id="gameStartButton" onclick="startGame()">Start</button>
+    </div>
+    <canvas id="canvas" width="720" height="480" class="#"></canvas>
+    <div class="game-guide"> 
+        <span>D = Throw</span>
+        <span>Spacebar = Jump</span>
+        <span>Move with Arrow Keys</span>
+    </div>
 
 
-    </canvas>
 </body>
+
 </html>

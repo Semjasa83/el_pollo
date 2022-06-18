@@ -2,9 +2,44 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(54, 54, 54);
+    background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
 }
 
 canvas {
     background-color: black;
+}
+
+.startscreen {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+}
+
+.startscreen img {
+    width: 720px;
+    height: 480px;
+}
+
+#gameStartButton {
+    position: absolute;
+    bottom: 5%;
+    width: 140px;
+    height: 30px;
+    border: 2px solid black;
+    background-color: #fbd21c;
+    border-radius: 6px;
+}
+
+.game-guide {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15px;
+    width: 720px;
+}
+
+.hide {
+    display: none;
 }
