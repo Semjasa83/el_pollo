@@ -10,6 +10,7 @@ class World {
     statusBar = new StatusBar();
     coinBar = new CoinBar();
     bottleBar = new BottleBar();
+    endScreen;
     throwableObjects = [];
     collectableObjects = [];
     world_music = new Audio('audio/music1.mp3');
@@ -27,6 +28,7 @@ class World {
         this.draw();
         this.setWorld(); //um keyboad zu übergeben
         this.run();
+        this.gameCheckRate();
     }
 
     /**
@@ -34,18 +36,31 @@ class World {
      */
 
     setWorld() {
-        this.character.world = this; 
+        this.character.world = this;
+    }
+
+    gameCheckRate() {
+        setInterval(() => {
+            this.openEndscreen();
+        }, 50);
+    }
+
+    openEndscreen() {
+        if (world.character.isDead()) {
+            this.endScreen = new Endscreen();
+        }
+
     }
 
     run() {
         setInterval(() => {
             this.checkCollisions();
             this.checkThrowObjects();
-        },200);
+        }, 200);
     }
 
     checkThrowObjects() {
-        if(this.keyboard.D){
+        if (this.keyboard.D) {
             let bottle = new ThrowableObject(this.character.x + 70, this.character.y + 110);
             this.throwableObjects.push(bottle);
         }
@@ -53,7 +68,7 @@ class World {
 
     checkCollisions() {
         this.level.enemies.forEach((enemy) => {
-            if(this.character.isColliding(enemy)){
+            if (this.character.isColliding(enemy)) {
                 this.character.hit();
                 this.statusBar.setPercentage(this.character.energy);
                 //console.log('Collision with Character, energy ', this.character.energy)
@@ -67,8 +82,9 @@ class World {
                 const copy = Object.assign({}, this.level.backgroundObjects[i]);
                 copy.x = copy.x + 719 * j;
                 this.addToMap(copy);
-            }}
+            }
         }
+    }
 
     /**
      *  correct Order for Z-Index on Canvas
@@ -83,6 +99,10 @@ class World {
         this.addToMap(this.character);
         this.addedWorldMusic();
         this.ctx.translate(-this.camera_x, 0);
+        if (this.endScreen) {
+            this.addToMap(this.endScreen);
+        }
+        //loop function to animate
         let self = this;
         requestAnimationFrame(function () {
             self.draw();
@@ -100,10 +120,10 @@ class World {
 
     addedWorldMusic() {
         this.world_music.volume = 0.35; //set Volume for Music
-        this.world_music.play(); 
+        this.world_music.play();
     }
 
-    addedObjects () {
+    addedObjects() {
         this.loopBackgroundsToMap();
         this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.enemies);
@@ -155,12 +175,12 @@ class World {
      */
 
     drawFrame(mo) {
-        if(mo instanceof Character || mo instanceof Chicken || mo instanceof Bottles || mo instanceof Coins || mo instanceof Endboss){
-        this.ctx.beginPath();
-        this.ctx.lineWidth = '1';
-        this.ctx.strokeStyle = 'blue';
-        this.ctx.rect(mo.x, mo.y, mo.width, mo.height);
-        this.ctx.stroke();
+        if (mo instanceof Character || mo instanceof Chicken || mo instanceof Bottles || mo instanceof Coins || mo instanceof Endboss) {
+            this.ctx.beginPath();
+            this.ctx.lineWidth = '1';
+            this.ctx.strokeStyle = 'blue';
+            this.ctx.rect(mo.x, mo.y, mo.width, mo.height);
+            this.ctx.stroke();
         }
     }
 

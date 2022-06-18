@@ -77,7 +77,11 @@ class Character extends MovableObject {
                 this.moveRight();
                 this.walking_sound.play();
             }
-            if (this.world.keyboard.LEFT && this.x > 0 && this.x > 2800) { //&& blocks the x direction at 0 for the player
+            if (this.world.keyboard.LEFT && this.x > 0) { //&& blocks the x direction at 0 for the player
+                this.moveLeft();
+                this.walking_sound.play();
+            }
+            if (this.x == 2800) { //blocks the x direction at 2800 near Boss for the player, to create a fixed Boss Fight
                 this.moveLeft();
                 this.walking_sound.play();
             }
