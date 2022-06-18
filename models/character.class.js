@@ -23,13 +23,14 @@ class Character extends MovableObject {
         'img/2.Secuencias_Personaje-Pepe-correcciขn/3.Secuencia_salto/J-37.png',
         'img/2.Secuencias_Personaje-Pepe-correcciขn/3.Secuencia_salto/J-38.png',
         'img/2.Secuencias_Personaje-Pepe-correcciขn/3.Secuencia_salto/J-39.png',
-        'img/2.Secuencias_Personaje-Pepe-correcciขn/3.Secuencia_salto/J-40.png'
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-21.png'
     ];
 
     IMAGES_HURT = [
         'img/2.Secuencias_Personaje-Pepe-correcciขn/4.Herido/H-41.png',
         'img/2.Secuencias_Personaje-Pepe-correcciขn/4.Herido/H-42.png',
-        'img/2.Secuencias_Personaje-Pepe-correcciขn/4.Herido/H-43.png'
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/4.Herido/H-43.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-21.png'
     ];
 
     IMAGES_DEAD = [

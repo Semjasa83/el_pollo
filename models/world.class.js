@@ -9,6 +9,7 @@ class World {
     camera_x = 0; //verschieben der Spielwelt
     statusBar = new StatusBar();
     coinBar = new CoinBar();
+    bottleBar = new BottleBar();
     throwableObjects = [];
     collectableObjects = [];
     world_music = new Audio('audio/music1.mp3');
@@ -93,6 +94,7 @@ class World {
         // ----- Space for fixed objects ------
         this.addToMap(this.statusBar);
         this.addToMap(this.coinBar);
+        this.addToMap(this.bottleBar);
         this.ctx.translate(this.camera_x, 0);
     }
 
@@ -153,7 +155,7 @@ class World {
      */
 
     drawFrame(mo) {
-        if(mo instanceof Character || mo instanceof Chicken){
+        if(mo instanceof Character || mo instanceof Chicken || mo instanceof Bottles || mo instanceof Coins || mo instanceof Endboss){
         this.ctx.beginPath();
         this.ctx.lineWidth = '1';
         this.ctx.strokeStyle = 'blue';
