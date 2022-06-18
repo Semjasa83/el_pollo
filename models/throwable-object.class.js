@@ -23,6 +23,9 @@ constructor(x, y) {
     this.bottle_sound.play();
 }
 
+/**
+ * Range and Speed from Bottles
+ */
 throw(){
     this.speedY = 10;
     this.applyGravity();
@@ -31,6 +34,9 @@ throw(){
     }, 30);
 }
 
+/**
+ * Bottle rotation Animation
+ */
 animate() {
     setInterval(() => {
         this.playAnimation(this.IMAGES_ROTATEBOTTLE);

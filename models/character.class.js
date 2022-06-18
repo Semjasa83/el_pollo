@@ -44,6 +44,7 @@ class Character extends MovableObject {
     ];
 
     /**
+     * Soundfiles for Character
      * @param {*} world - to be able to access the variables of the world including the keyboard
      */
     world;
@@ -76,7 +77,7 @@ class Character extends MovableObject {
                 this.moveRight();
                 this.walking_sound.play();
             }
-            if (this.world.keyboard.LEFT && this.x > 0) { //&& blocks the x direction at 0 for the player
+            if (this.world.keyboard.LEFT && this.x > 0 && this.x > 2800) { //&& blocks the x direction at 0 for the player
                 this.moveLeft();
                 this.walking_sound.play();
             }
@@ -85,7 +86,7 @@ class Character extends MovableObject {
                 this.jumping_sound.play();
             }
 
-            this.world.camera_x = - this.x + 50; //positions the character 50px away from the border
+            this.world.camera_x = - this.x + 50; //positions the character 50px away from Start Border
 
         }, 1000 / 60);
 

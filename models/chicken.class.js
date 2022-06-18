@@ -15,12 +15,11 @@ class Chicken extends MovableObject {
     * 
     * @param {speed} - sets speed for Chicken, with random Speed
     */
-
     constructor() {
         super().loadImage('img/3.Secuencias_Enemy_b_sico/Versi¢n_Gallinita (estas salen por orden de la gallina gigantona)/1.Ga_paso_derecho.png');
         this.loadImages(this.IMAGES_WALKING);
-        this.x = 450 + Math.random() * 3000;
-        this.speed = 0.3 + Math.random() * 0.35;
+        this.x = 450 + Math.random() * 3000; //sets Spawn for Chickens
+        this.speed = 0.3 + Math.random() * 0.35; //sets Speed for Chickens
 
         this.animate();
     }

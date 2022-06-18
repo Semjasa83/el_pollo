@@ -4,6 +4,7 @@ let keyboard = new Keyboard();
 
 /**
  * Initialisation from Canvas on HTML
+ * load the World on Canvas
  */
 function init() {
     canvas = document.getElementById('canvas'); 

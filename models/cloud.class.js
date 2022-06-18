@@ -14,10 +14,13 @@ class Cloud extends MovableObject {
     constructor() {
         super().loadImage('img/5.Fondo/Capas/4.nubes/Completo.png');
         this.x = 200 + Math.random() * 3000; //Spawn for Clouds
-        this.y = 10 + Math.random() * 90;
+        this.y = 10 + Math.random() * 90; //shift Spawn for Clouds in Height
         this.animate();
     }
 
+    /**
+     * Set speeds for Clouds
+     */
     animate() {
         setInterval( () => {
             //console.log(this.speed,this.x);

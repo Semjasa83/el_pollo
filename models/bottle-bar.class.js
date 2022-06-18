@@ -27,6 +27,10 @@ class BottleBar extends DrawableObject{
         this.img = this.imageCache[path];
     }
 
+    /**
+     * 
+     * @returns the percentage to the IMAGES for the Bar
+     */
     resolveImageIndex() {
         if (this.percentage == 100) {
             return 5;

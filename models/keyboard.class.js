@@ -1,4 +1,8 @@
 class Keyboard {
+
+    /**
+     * Sets Controller Keys for Game
+     */
     LEFT = false;
     RIGHT = false;
     UP = false;
