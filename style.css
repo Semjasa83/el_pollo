@@ -9,7 +9,7 @@ canvas {
     background-color: black;
 }
 
-.startscreen {
+#startscreen {
     display: flex;
     position: relative;
     align-items: center;
@@ -17,7 +17,7 @@ canvas {
     object-fit: cover;
 }
 
-.startscreen img {
+#startscreen img {
     width: 720px;
     height: 480px;
 }

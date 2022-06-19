@@ -2,6 +2,13 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
+function startGame() {
+    document.getElementById("startscreen_img").classList.add("hide");
+    document.getElementById("gameStartButton").classList.add("hide");
+    document.getElementById("canvas").classList.remove("hide");
+    init();
+}
+
 /**
  * Initialisation from Canvas on HTML
  * load the World on Canvas

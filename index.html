@@ -33,13 +33,13 @@
 
 </head>
 
-<body onload="init()">
+<body>
     <h1 class="title">El Pollo loco</h1>
-    <div class="startscreen hide">
-        <img src="img/9.Intro_Outro_Image/Start_Screen/Option2.png">
+    <div id="startscreen">
+        <img id="startscreen_img" src="img/9.Intro_Outro_Image/Start_Screen/Option2.png">
         <button id="gameStartButton" onclick="startGame()">Start</button>
     </div>
-    <canvas id="canvas" width="720" height="480" class="#"></canvas>
+    <canvas id="canvas" width="720" height="480" class="hide"></canvas>
     <div class="game-guide"> 
         <span>D = Throw</span>
         <span>Spacebar = Jump</span>

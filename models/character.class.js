@@ -81,10 +81,6 @@ class Character extends MovableObject {
                 this.moveLeft();
                 this.walking_sound.play();
             }
-            if (this.x == 2800) { //blocks the x direction at 2800 near Boss for the player, to create a fixed Boss Fight
-                this.moveLeft();
-                this.walking_sound.play();
-            }
             if (this.world.keyboard.SPACE && !this.isAboveGround()) {
                 this.jump();
                 this.jumping_sound.play();
