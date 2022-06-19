@@ -9,46 +9,43 @@ class CoinBar extends DrawableObject {
         'img/7.Marcadores/Barra/Marcador_moneda/Verde/100.png'
     ]
 
-    percentage = 100;
+    percentage = 0;
+    coin_sound = new Audio('audio/coin.mp3');
 
     constructor() {
         super();
         this.loadImages(this.IMAGES);
-        this.setPercentage(100);
-        this.x = 10;
-        this.y = 60;
+        this.setPercentage(0);
+        this.x = 290;
+        this.y = 0;
         this.width = 140;
         this.height = 40;
     }
 
-    /**
-     * Sets Percentages for correct Image Coin Bar
-     * @param {var} percentage 
-     */
     setPercentage(percentage) {
         this.percentage = percentage;
         let path = this.IMAGES[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
-    /**
-     * 
-     * @returns the percentage to the IMAGES for the Bar
-     */
+    collectCoin() {
+        this.percentage += 10;
+        this.coin_sound.play();
+    }
+
     resolveImageIndex() {
-        if (this.percentage == 100) {
+        if (this.percentage >= 100) {
             return 5;
-        } else if (this.percentage > 80) {
+        } else if (this.percentage > 70) {
             return 4;
-        } else if (this.percentage > 60) {
+        } else if (this.percentage > 50) {
             return 3;
-        } else if (this.percentage > 40) {
+        } else if (this.percentage > 30) {
             return 2;
-        } else if (this.percentage > 20) {
+        } else if (this.percentage > 10) {
             return 1;
         } else {
             return 0;
         }
-
     }
 }

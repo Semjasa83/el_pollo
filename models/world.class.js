@@ -42,6 +42,8 @@ class World {
     gameCheckRate() {
         setInterval(() => {
             this.openEndscreen();
+            this.bottleCollision();
+            this.coinCollision();
         }, 50);
     }
 
@@ -75,6 +77,34 @@ class World {
             }
         });
     }
+
+    bottleCollision(){
+        this.level.bottles.forEach((bottle) => {
+            if(bottle.width > 0 && bottle.height > 0){
+                if(this.character.isColliding(bottle)){
+                    bottle.width = 0;
+                    bottle.height = 0;
+                    this.bottleBar.collectBottle();
+                    this.bottleBar.setPercentage(this.bottleBar.percentage);
+                }
+            }
+        })
+    }
+
+    coinCollision(){
+        this.level.coins.forEach((coin) => {
+            if(coin.width > 0 && coin.height > 0){
+                if(this.character.isColliding(coin)){
+                    coin.width = 0;
+                    coin.height = 0;
+                    this.coinBar.collectCoin();
+                    this.coinBar.setPercentage(this.coinBar.percentage);
+                    console.log(this.coinBar.percentage);
+                }
+            }
+        })
+    }
+
 
     loopBackgroundsToMap() {
         for (let j = 0; j < 8; j += 2) {

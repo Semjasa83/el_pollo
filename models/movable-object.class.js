@@ -5,6 +5,7 @@ class MovableObject extends DrawableObject {
     speedY = 0;
     acceleration = 2.5;
     energy = 100;
+    bottleBarEnergy = 100;
     lasthit = 0;
 
     /**
@@ -21,11 +22,12 @@ class MovableObject extends DrawableObject {
     }
 
     isAboveGround() {
-        if (this instanceof ThrowableObject){ //Throwable shut always fall
+        if (this instanceof ThrowableObject) { //Throwable shut always fall
             return true;
         } else {
-        return this.y < 190;
-    }}
+            return this.y < 190;
+        }
+    }
 
     /**
      * Animation for Walking -> Chicken, Boss, Charakter, Clouds etc.
@@ -51,7 +53,7 @@ class MovableObject extends DrawableObject {
     }
 
     jump() {
-        this.speedY = 35; //for Jump Height
+        this.speedY = 29; //for Jump Height
     }
 
 
@@ -83,5 +85,4 @@ class MovableObject extends DrawableObject {
     isDead() {
         return this.energy == 0;
     }
-
 }

@@ -6,7 +6,7 @@
 
 const level1 = new Level(
     [
-        new Endboss(),
+        new Endboss(),/*
         new Chicken(),
         new Chicken(),
         new Chicken(),
@@ -14,7 +14,7 @@ const level1 = new Level(
         new Chicken(),
         new Chicken(),
         new Chicken(),
-        new Chicken()
+        new Chicken()*/
     ],
     [
         new Cloud(),
@@ -33,27 +33,30 @@ const level1 = new Level(
     ],
     [
         new Bottles('img/6.botella/1.Marcador.png', 340, 220),
-        new Bottles('img/6.botella/1.Marcador.png', 450, 130),
-        new Bottles('img/6.botella/1.Marcador.png', 600, 130),
-        new Bottles('img/6.botella/1.Marcador.png', 710, 220),
+        new Bottles('img/6.botella/1.Marcador.png', 340, 90),
+        new Bottles('img/6.botella/1.Marcador.png', 400, 90),
+        new Bottles('img/6.botella/1.Marcador.png', 400, 220),
         new Bottles('img/6.botella/2.Botella_enterrada1.png', 950, 340),
-        new Bottles('img/6.botella/2.Botella_enterrada2.png', 1100, 340),
+        new Bottles('img/6.botella/2.Botella_enterrada2.png', 1050, 340),
         new Bottles('img/6.botella/1.Marcador.png', 1340, 220),
-        new Bottles('img/6.botella/1.Marcador.png', 1450, 130),
-        new Bottles('img/6.botella/1.Marcador.png', 1600, 130),
-        new Bottles('img/6.botella/1.Marcador.png', 1710, 220),
+        new Bottles('img/6.botella/1.Marcador.png', 1340, 75),
+        new Bottles('img/6.botella/1.Marcador.png', 1600, 75),
+        new Bottles('img/6.botella/1.Marcador.png', 1600, 220),
         new Bottles('img/6.botella/2.Botella_enterrada1.png', 1950, 340),
-        new Bottles('img/6.botella/2.Botella_enterrada2.png', 2100, 340),
+        new Bottles('img/6.botella/2.Botella_enterrada2.png', 2500, 340),
         new Bottles('img/6.botella/2.Botella_enterrada1.png', 2350, 340),
         new Bottles('img/6.botella/2.Botella_enterrada2.png', 2500, 340),
     ],
     [
-        new Coins('img/8.Coin/Moneda1.png', 500, 110),
+        new Coins('img/8.Coin/Moneda1.png', 500, 80),
         new Coins('img/8.Coin/Moneda1.png', 500, 340),
-        new Coins('img/8.Coin/Moneda1.png', 1500, 110),
-        new Coins('img/8.Coin/Moneda1.png', 1500, 340),
-        new Coins('img/8.Coin/Moneda1.png', 999, 320),
-        new Coins('img/8.Coin/Moneda1.png', 1999, 320),
-        new Coins('img/8.Coin/Moneda1.png', 2399, 320),
+        new Coins('img/8.Coin/Moneda1.png', 700, 80),
+        new Coins('img/8.Coin/Moneda1.png', 700, 340),
+        new Coins('img/8.Coin/Moneda1.png', 999, 340),
+        new Coins('img/8.Coin/Moneda1.png', 999, 80),
+        new Coins('img/8.Coin/Moneda1.png', 1200, 340),
+        new Coins('img/8.Coin/Moneda1.png', 1200, 80),
+        new Coins('img/8.Coin/Moneda1.png', 2100, 340),
+        new Coins('img/8.Coin/Moneda1.png', 2100, 80),
     ],
 );

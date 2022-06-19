@@ -1,6 +1,6 @@
 class Coins extends MovableObject {
-    width = 150;
-    height = 150;
+    width = 90;
+    height = 90;
 
     /**
      * Preferences for Coins
