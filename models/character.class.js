@@ -83,7 +83,7 @@ class Character extends MovableObject {
                 this.moveRight();
                 this.walking_sound.play();
             }
-            if (this.world.keyboard.LEFT && this.x > 0) { //&& blocks the x direction at 0 for the player
+            if (this.world.keyboard.LEFT && this.x > 0 && this.x < 2700) { //&& blocks the x direction at 0 for the player
                 this.moveLeft();
                 this.walking_sound.play();
             }
@@ -91,16 +91,23 @@ class Character extends MovableObject {
                 this.jump();
                 this.jumping_sound.play();
             }
-            if(this.x > 2800) {
+            if (this.x > 2800 && this.world.keyboard.RIGHT){
+                this.boss_Stage = true;
+                this.otherDirection = false;
+                this.moveRight();
+            }
+            if(this.x > 2800 && this.world.keyboard.LEFT) {
                 this.boss_Stage = true;
                 console.log('over 2800px',this.boss_Stage);
+                this.otherDirection = true;
+                this.moveLeft();
             }
             this.world.camera_x = - this.x + 50; //positions the character 50px away from Start Border
         }, 1000 / 60);
 
         setInterval(() => {
             if (this.boss_Stage = true && this.world.keyboard.LEFT) {
-                this.moveLeft();
+                ;
             }
         })
 

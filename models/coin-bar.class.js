@@ -30,6 +30,7 @@ class CoinBar extends DrawableObject {
 
     collectCoin() {
         this.percentage += 10;
+        this.coin_sound.volume = 0.20; //set Volume
         this.coin_sound.play();
     }
 
