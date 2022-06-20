@@ -94,7 +94,7 @@ class Character extends MovableObject {
             if (this.x > 2800 && this.world.keyboard.RIGHT){
                 this.boss_Stage = true;
                 this.otherDirection = false;
-                this.moveRight();
+
             }
             if(this.x > 2800 && this.world.keyboard.LEFT) {
                 this.boss_Stage = true;
