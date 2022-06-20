@@ -1,9 +1,16 @@
 
 class Character extends MovableObject {
+
+    /**
+    * 
+    * @param {*} world - to be able to access the variables of the world including the keyboard
+    */
+    world;
     x = 50;
     height = 240;
     width = 120;
     speed = 7;
+
     IMAGES_WALKING = [
         'img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-21.png',
         'img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-22.png',
@@ -45,13 +52,13 @@ class Character extends MovableObject {
 
     /**
      * Soundfiles for Character
-     * @param {*} world - to be able to access the variables of the world including the keyboard
      */
-    world;
     walking_sound = new Audio('audio/running.mp3');
     jumping_sound = new Audio('audio/jump.mp3');
     hurt_sound = new Audio('audio/hurt.mp3');
     died_sound = new Audio('audio/died.mp3');
+
+    boss_Stage = false;
 
     constructor() {
         super().loadImage('img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-21.png');
@@ -67,7 +74,6 @@ class Character extends MovableObject {
      * Character Animation for Move Left & Right & Jump etc.
      */
     animate() {
-
         /**
          * Character SoundBoard and Moveanimation for Left and Right
          */
@@ -85,10 +91,18 @@ class Character extends MovableObject {
                 this.jump();
                 this.jumping_sound.play();
             }
-
+            if(this.x > 2800) {
+                this.boss_Stage = true;
+                console.log('over 2800px',this.boss_Stage);
+            }
             this.world.camera_x = - this.x + 50; //positions the character 50px away from Start Border
-
         }, 1000 / 60);
+
+        setInterval(() => {
+            if (this.boss_Stage = true && this.world.keyboard.LEFT) {
+                this.moveLeft();
+            }
+        })
 
         /**
          * Character Moveanimation for Jump & Move Left and Right
@@ -97,7 +111,7 @@ class Character extends MovableObject {
         setInterval(() => {
             if (this.isDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
-            } else if (this.isHurt()){
+            } else if (this.isHurt()) {
                 this.playAnimation(this.IMAGES_HURT);
             } else if (this.isAboveGround()) {
                 this.playAnimation(this.IMAGES_JUMPING);

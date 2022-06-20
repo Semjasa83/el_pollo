@@ -2,17 +2,17 @@
 class World {
 
     character = new Character();
+    statusBar = new StatusBar();
+    coinBar = new CoinBar();
+    bottleBar = new BottleBar();
+    throwableObjects = [];
+    collectableObjects = [];
+    camera_x = 0; //verschieben der Spielwelt
     level = level1;
     canvas;
     ctx;
     keyboard;
-    camera_x = 0; //verschieben der Spielwelt
-    statusBar = new StatusBar();
-    coinBar = new CoinBar();
-    bottleBar = new BottleBar();
     endScreen;
-    throwableObjects = [];
-    collectableObjects = [];
     world_music = new Audio('audio/music1.mp3');
 
     /**
