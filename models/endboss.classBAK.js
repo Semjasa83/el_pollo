@@ -3,7 +3,6 @@ class Endboss extends MovableObject {
     width = 250;
     height = 300;
 
-
     IMAGES_ALERT = [
         'img/4.Secuencias_Enemy_gigantขn-Doคa_Gallinota-/2.Ateciขn-ataque/1.Alerta/G5.png',
         'img/4.Secuencias_Enemy_gigantขn-Doคa_Gallinota-/2.Ateciขn-ataque/1.Alerta/G6.png',
@@ -38,10 +37,8 @@ class Endboss extends MovableObject {
         'img/4.Secuencias_Enemy_gigantขn-Doคa_Gallinota-/4.Muerte/G26.png'
     ];
 
-    boss_Alert = false;
-
     constructor() {
-        super().loadImage(this.IMAGES_ALERT[7]);
+        super().loadImage(this.IMAGES_ALERT[0]);
         this.loadImages(this.IMAGES_ALERT);
         this.loadImages(this.IMAGES_ATK);
         this.loadImages(this.IMAGES_HURT);
@@ -55,22 +52,7 @@ class Endboss extends MovableObject {
      */
     animate() {
         setInterval(() => {
-                this.playAnimation(this.IMAGES_ALERT);
-            
+            this.playAnimation(this.IMAGES_ALERT);
         }, 250);
     }
-    /*
-        setInterval(() => {
-            if (this.isDead()) {
-                this.playAnimation(this.IMAGES_DEAD);
-            } else if (this.isHurt()) {
-                this.playAnimation(this.IMAGES_HURT);
-            } else if (this.isAboveGround()) {
-                this.playAnimation(this.IMAGES_JUMPING);
-            } else {
-                if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-                    this.playAnimation(this.IMAGES_WALKING);
-                }
-            }
-        }, 120);*/
 }
