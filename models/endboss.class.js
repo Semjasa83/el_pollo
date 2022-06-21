@@ -4,6 +4,13 @@ class Endboss extends MovableObject {
     height = 300;
 
 
+    IMAGES_WALK = [
+        'img/4.Secuencias_Enemy_gigantขn-Doคa_Gallinota-/1.Caminata/G1.png',
+        'img/4.Secuencias_Enemy_gigantขn-Doคa_Gallinota-/1.Caminata/G2.png',
+        'img/4.Secuencias_Enemy_gigantขn-Doคa_Gallinota-/1.Caminata/G3.png',
+        'img/4.Secuencias_Enemy_gigantขn-Doคa_Gallinota-/1.Caminata/G4.png'
+    ]
+
     IMAGES_ALERT = [
         'img/4.Secuencias_Enemy_gigantขn-Doคa_Gallinota-/2.Ateciขn-ataque/1.Alerta/G5.png',
         'img/4.Secuencias_Enemy_gigantขn-Doคa_Gallinota-/2.Ateciขn-ataque/1.Alerta/G6.png',
@@ -54,7 +61,8 @@ class Endboss extends MovableObject {
      * Animation for Chicken in Alert
      */
     animate() {
-        if (this.boss_Alert = true) {
+        if (this.boss_Alert == true) {
+            console.log(this.boss_Alert);
             setInterval(() => { // Attack Move from Boss
                 this.x -= this.speed;
             }, 1000 / 60);
@@ -65,21 +73,7 @@ class Endboss extends MovableObject {
             setInterval(() => {
                 this.playAnimation(this.IMAGES_ALERT);
             }, 250);
-    
+
         }
     }
-    /*
-        setInterval(() => {
-            if (this.isDead()) {
-                this.playAnimation(this.IMAGES_DEAD);
-            } else if (this.isHurt()) {
-                this.playAnimation(this.IMAGES_HURT);
-            } else if (this.isAboveGround()) {
-                this.playAnimation(this.IMAGES_JUMPING);
-            } else {
-                if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-                    this.playAnimation(this.IMAGES_WALKING);
-                }
-            }
-        }, 120);*/
 }

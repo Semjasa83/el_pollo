@@ -59,7 +59,6 @@ class Character extends MovableObject {
     died_sound = new Audio('audio/died.mp3');
 
     boss_Stage = false;
-    boss_Alert = false;
 
     constructor() {
         super().loadImage('img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-21.png');
@@ -102,8 +101,8 @@ class Character extends MovableObject {
                 this.moveLeft();
             }
             if(this.x > 3000) {
-                this.boss_Alert = true;
-                console.log('true?', this.boss_Alert);
+                this.world.level.enemies[0].boss_Alert = true;
+                console.log('char', this.world.level.enemies[0].boss_Alert);
             }
             this.world.camera_x = - this.x + 50; //positions the character 50px away from Start Border
         }, 1000 / 60);
