@@ -54,10 +54,19 @@ class Endboss extends MovableObject {
      * Animation for Chicken in Alert
      */
     animate() {
-        setInterval(() => {
+        if (this.boss_Alert = true) {
+            setInterval(() => { // Attack Move from Boss
+                this.x -= this.speed;
+            }, 1000 / 60);
+            setInterval(() => {
+                this.playAnimation(this.IMAGES_ATK);
+            }, 250);
+        } else {
+            setInterval(() => {
                 this.playAnimation(this.IMAGES_ALERT);
-            
-        }, 250);
+            }, 250);
+    
+        }
     }
     /*
         setInterval(() => {

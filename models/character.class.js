@@ -84,7 +84,7 @@ class Character extends MovableObject {
                 this.moveRight();
                 this.walking_sound.play();
             }
-            if (this.world.keyboard.LEFT && this.x > 0 && this.x < 2700) { //&& blocks the x direction at 0 for the player
+            if (this.world.keyboard.LEFT && this.x > 0 && this.x < 2780) { //&& blocks the x direction at 0 for the player
                 this.moveLeft();
                 this.walking_sound.play();
             }
@@ -101,18 +101,12 @@ class Character extends MovableObject {
                 this.otherDirection = true;
                 this.moveLeft();
             }
-            if(this.x > 2000) {
+            if(this.x > 3000) {
                 this.boss_Alert = true;
                 console.log('true?', this.boss_Alert);
             }
             this.world.camera_x = - this.x + 50; //positions the character 50px away from Start Border
         }, 1000 / 60);
-
-        setInterval(() => {
-            if (this.boss_Stage = true && this.world.keyboard.LEFT) {
-                ;
-            }
-        })
 
         /**
          * Character Moveanimation for Jump & Move Left and Right
