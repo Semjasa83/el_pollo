@@ -63,6 +63,7 @@ class Endboss extends MovableObject {
     animate() {
         if (this.boss_Alert == true) {
             console.log(this.boss_Alert);
+            this.animate();
             setInterval(() => { // Attack Move from Boss
                 this.x -= this.speed;
             }, 1000 / 60);
@@ -73,7 +74,24 @@ class Endboss extends MovableObject {
             setInterval(() => {
                 this.playAnimation(this.IMAGES_ALERT);
             }, 250);
-
         }
     }
+/*
+    animate() {
+        setInterval(()=>{
+            this.otherDirection = this.otherDirection? false : true;
+        }, 5000);
+        setInterval(()=>{
+            if (this.otherDirection) {
+                this.moveRight();
+             }
+             else{
+               this.moveLeft();
+             }
+       }, 100);
+        setInterval(() => {
+            this.playAnimation(this.IMAGES_WALKING);
+        }, 200);
+    }*/
 }
+
