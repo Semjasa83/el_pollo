@@ -53,45 +53,28 @@ class Endboss extends MovableObject {
         this.loadImages(this.IMAGES_ATK);
         this.loadImages(this.IMAGES_HURT);
         this.loadImages(this.IMAGES_DEAD);
+        this.loadImages(this.IMAGES_WALK);
         this.x = 3300;
         this.animate();
     }
 
+    //todo
+
     /**
      * Animation for Chicken in Alert
      */
+
     animate() {
-        if (this.boss_Alert == true) {
-            console.log(this.boss_Alert);
-            this.animate();
-            setInterval(() => { // Attack Move from Boss
-                this.x -= this.speed;
-            }, 1000 / 60);
-            setInterval(() => {
-                this.playAnimation(this.IMAGES_ATK);
-            }, 250);
-        } else {
-            setInterval(() => {
-                this.playAnimation(this.IMAGES_ALERT);
-            }, 250);
-        }
-    }
-/*
-    animate() {
-        setInterval(()=>{
-            this.otherDirection = this.otherDirection? false : true;
-        }, 5000);
-        setInterval(()=>{
-            if (this.otherDirection) {
-                this.moveRight();
-             }
-             else{
-               this.moveLeft();
-             }
-       }, 100);
         setInterval(() => {
-            this.playAnimation(this.IMAGES_WALKING);
-        }, 200);
-    }*/
+            if (this.boss_Alert == true) {
+                console.log(this.boss_Alert);
+                this.x -= this.speed;
+                this.playAnimation(this.IMAGES_ATK);
+            }
+            if (this.boss_Alert == false) {
+                this.playAnimation(this.IMAGES_ALERT);
+            }
+        }, 250);
+    }
 }
 
