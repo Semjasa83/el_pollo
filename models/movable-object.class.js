@@ -7,17 +7,20 @@ class MovableObject extends DrawableObject {
     energy = 100;
     bottleBarEnergy = 100;
     lasthit = 0;
+    //objectMinY;
 
     /**
      * sets Gravitation Speed if a class is above the Ground
      */
 
-    applyGravity() {
+    applyGravity(objectMinY) {
         setInterval(() => {
             if (this.isAboveGround() || this.speedY > 0) {
                 this.y -= this.speedY;
                 this.speedY -= this.acceleration;
-            }
+            }//else{
+               // this.y = objectMinY;
+            //}
         }, 1000 / 25);
     }
 
@@ -25,7 +28,7 @@ class MovableObject extends DrawableObject {
         if (this instanceof ThrowableObject) { //Throwable shut always fall
             return true;
         } else {
-            return this.y < 190;
+            return this.y < 190; //HÖHE BOSS EINSTELLEN
         }
     }
 
