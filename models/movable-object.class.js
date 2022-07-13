@@ -91,10 +91,11 @@ class MovableObject extends DrawableObject {
     }
 
     // BOSS COLLISION TODO - BETA
+    
     bossHit(){
         this.bossenergy -= 20; //dmg ratio for hit
-        if (this.energy < 0) {
-            this.energy = 0;
+        if (this.bossenergy < 0) {
+            this.bossenergy = 0;
             this.died_sound.play(); //new sound needed TODO
         } else {
             this.lastHit = new Date().getTime();
@@ -109,6 +110,6 @@ class MovableObject extends DrawableObject {
     }
 
     bossIsDead() {
-        return this.energy == 0;
+        return this.bossenergy == 0;
     }
 }

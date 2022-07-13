@@ -3,6 +3,8 @@ class Chicken extends MovableObject {
     y = 373;
     height = 50;
     width = 50;
+    energy = 2;
+
     IMAGES_WALKING = [
         'img/3.Secuencias_Enemy_b_sico/Versi¢n_Gallinita (estas salen por orden de la gallina gigantona)/1.Ga_paso_derecho.png',
         'img/3.Secuencias_Enemy_b_sico/Versi¢n_Gallinita (estas salen por orden de la gallina gigantona)/2-Ga_centro.png',
