@@ -5,6 +5,7 @@ class MovableObject extends DrawableObject {
     speedY = 0;
     acceleration = 2.5;
     energy = 100;
+    bossenergy = 100;
     bottleBarEnergy = 100;
     lasthit = 0;
     //objectMinY;
@@ -86,6 +87,28 @@ class MovableObject extends DrawableObject {
     }
 
     isDead() {
+        return this.energy == 0;
+    }
+
+    // BOSS COLLISION TODO - BETA
+    bossHit(){
+        this.bossenergy -= 20; //dmg ratio for hit
+        if (this.energy < 0) {
+            this.energy = 0;
+            this.died_sound.play(); //new sound needed TODO
+        } else {
+            this.lastHit = new Date().getTime();
+            this.hurt_sound.play(); //new sound needed TODO
+        }
+    }
+
+    bossIsHurt() {
+        let timepassed = new Date().getTime() - this.lastHit; // Difference in ms
+        timepassed = timepassed / 500; //differnece in s
+        return timepassed < 0.5; //returns TRUE
+    }
+
+    bossIsDead() {
         return this.energy == 0;
     }
 }

@@ -149,7 +149,7 @@ class World {
     }
 
     addedWorldMusic() {
-        this.world_music.volume = 0.35; //set Volume for Music
+        this.world_music.volume = 0.1; //set Volume for Music
         this.world_music.play();
     }
 

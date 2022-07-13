@@ -101,7 +101,7 @@ class Character extends MovableObject {
                 this.otherDirection = true;
                 this.moveLeft();
             }
-            if(this.x > 3000) {
+            if(this.x > 2900) {
                 this.world.level.enemies[0].boss_Alert = true;
                 console.log('char', this.world.level.enemies[0].boss_Alert);
             }

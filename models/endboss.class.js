@@ -68,12 +68,14 @@ class Endboss extends MovableObject {
         setInterval(() => {
             if (this.boss_Alert == true) {
                 console.log(this.boss_Alert);
+                this.playAnimation(this.IMAGES_WALK);
+                setInterval(()=>{
                 this.x -= this.speed;
-                this.playAnimation(this.IMAGES_ATK);
+                }, 200);
             }
             if (this.boss_Alert == false) {
-                this.playAnimation(this.IMAGES_ALERT);
-            }
+                this.playAnimation(this.IMAGES_ATK);            
+            } 
         }, 250);
     }
 }
