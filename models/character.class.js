@@ -103,7 +103,7 @@ class Character extends MovableObject {
             }
             if(this.x > 2900) {
                 this.world.level.enemies[0].boss_Alert = true;
-                console.log('char', this.world.level.enemies[0].boss_Alert);
+                //console.log('char', this.world.level.enemies[0].boss_Alert);
             }
             this.world.camera_x = - this.x + 50; //positions the character 50px away from Start Border
         }, 1000 / 60);

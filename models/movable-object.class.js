@@ -14,14 +14,12 @@ class MovableObject extends DrawableObject {
      * sets Gravitation Speed if a class is above the Ground
      */
 
-    applyGravity(objectMinY) {
+    applyGravity() {
         setInterval(() => {
             if (this.isAboveGround() || this.speedY > 0) {
                 this.y -= this.speedY;
                 this.speedY -= this.acceleration;
-            }//else{
-               // this.y = objectMinY;
-            //}
+            }
         }, 1000 / 25);
     }
 
@@ -93,13 +91,14 @@ class MovableObject extends DrawableObject {
     // BOSS COLLISION TODO - BETA
     
     bossHit(){
-        this.bossenergy -= 20; //dmg ratio for hit
+        this.bossenergy -= 25; //dmg ratio for hit
+        console.log('boss hit', this.bossenergy);
         if (this.bossenergy < 0) {
             this.bossenergy = 0;
-            this.died_sound.play(); //new sound needed TODO
+            //this.died_sound.play(); //new sound needed TODO
         } else {
             this.lastHit = new Date().getTime();
-            this.hurt_sound.play(); //new sound needed TODO
+            //this.hurt_sound.play(); //new sound needed TODO
         }
     }
 

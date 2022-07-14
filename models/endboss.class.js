@@ -3,7 +3,7 @@ class Endboss extends MovableObject {
     width = 250;
     height = 300;
     energy = 100;
-    
+
 
     IMAGES_WALK = [
         'img/4.Secuencias_Enemy_gigantขn-Doคa_Gallinota-/1.Caminata/G1.png',
@@ -64,19 +64,47 @@ class Endboss extends MovableObject {
     /**
      * Animation for Chicken in Alert
      */
+    /*
+        animate() {
+            setInterval(() => {
+                if (this.boss_Alert == true) {
+                    console.log(this.boss_Alert);
+                    this.playAnimation(this.IMAGES_WALK);
+                    setInterval(()=>{
+                    this.x -= this.speed;
+                    }, 200);
+                }
+                if (this.boss_Alert == false) {
+                    this.playAnimation(this.IMAGES_ATK);            
+                }
+                /*
+                if (this.bossIsHurt()){
+                    this.playAnimation(this.IMAGES_HURT);
+                } 
+                if (this.bossIsDead()){
+                    this.playAnimation(this.IMAGES_DEAD);
+                }
+            }, 250);
+        }*/
 
     animate() {
         setInterval(() => {
-            if (this.boss_Alert == true) {
-                console.log(this.boss_Alert);
-                this.playAnimation(this.IMAGES_WALK);
-                setInterval(()=>{
-                this.x -= this.speed;
-                }, 200);
+            if (this.bossIsDead()) {
+                this.playAnimation(this.IMAGES_DEAD);
+            } else if (this.bossIsHurt()) {
+                this.playAnimation(this.IMAGES_HURT);
+            } else {
+                if (this.boss_Alert == true) {
+                    console.log(this.boss_Alert);
+                    this.playAnimation(this.IMAGES_WALK);
+                    setInterval(() => {
+                        this.x -= this.speed;
+                    }, 200);
+                }
+                if (this.boss_Alert == false) {
+                    this.playAnimation(this.IMAGES_ATK);
+                }
             }
-            if (this.boss_Alert == false) {
-                this.playAnimation(this.IMAGES_ATK);            
-            } 
         }, 250);
     }
 }

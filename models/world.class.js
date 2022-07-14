@@ -44,6 +44,7 @@ class World {
             this.openEndscreen();
             this.bottleCollision();
             this.coinCollision();
+            this.chickenCollisionsWithBottle();
         }, 50);
     }
 
@@ -75,18 +76,20 @@ class World {
                 this.statusBar.setPercentage(this.character.energy);
                 //console.log('Collision with Character, energy ', this.character.energy)
             }
+            /* NR
             setInterval(() => {
                 this.chickenCollisionsWithBottle();
-            }, 200)
+            }, 200)*/
         });
     }
+
 
     chickenCollisionsWithBottle() {
         this.level.enemies.forEach((enemy) => {
             this.throwableObjects.forEach(bottle => {
                 if (enemy.isColliding(bottle)) {
                     if (enemy instanceof Endboss) {
-                        enemy.energy -= 25;
+                        this.enemy.bossHit();
                         console.log('energy', enemy.energy);
                     } else {
                         enemy.energy -= 1;
@@ -117,7 +120,7 @@ class World {
                     coin.height = 0;
                     this.coinBar.collectCoin();
                     this.coinBar.setPercentage(this.coinBar.percentage);
-                    console.log(this.coinBar.percentage);
+                    //console.log(this.coinBar.percentage);
                 }
             }
         })
