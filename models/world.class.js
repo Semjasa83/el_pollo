@@ -89,7 +89,8 @@ class World {
             this.throwableObjects.forEach(bottle => {
                 if (enemy.isColliding(bottle)) {
                     if (enemy instanceof Endboss) {
-                        this.enemy.bossHit();
+                        console.log('kv enemy', enemy);
+                        enemy.bossHit();
                         console.log('energy', enemy.energy);
                     } else {
                         enemy.energy -= 1;
