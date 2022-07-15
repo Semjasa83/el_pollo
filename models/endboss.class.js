@@ -2,7 +2,7 @@ class Endboss extends MovableObject {
     y = 140;
     width = 250;
     height = 300;
-    energy = 100;
+    energy = 400;
 
 
     IMAGES_WALK = [
@@ -59,45 +59,18 @@ class Endboss extends MovableObject {
         this.animate();
     }
 
-    //todo
-
-    /**
-     * Animation for Chicken in Alert
-     */
-    /*
-        animate() {
-            setInterval(() => {
-                if (this.boss_Alert == true) {
-                    console.log(this.boss_Alert);
-                    this.playAnimation(this.IMAGES_WALK);
-                    setInterval(()=>{
-                    this.x -= this.speed;
-                    }, 200);
-                }
-                if (this.boss_Alert == false) {
-                    this.playAnimation(this.IMAGES_ATK);            
-                }
-                /*
-                if (this.bossIsHurt()){
-                    this.playAnimation(this.IMAGES_HURT);
-                } 
-                if (this.bossIsDead()){
-                    this.playAnimation(this.IMAGES_DEAD);
-                }
-            }, 250);
-        }*/
-
     animate() {
         setInterval(() => {
             if (this.bossIsDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
+                clearInterval(this.moveLeft(), this.boss_Move);
             } else if (this.bossIsHurt()) {
                 this.playAnimation(this.IMAGES_HURT);
             } else {
                 if (this.boss_Alert == true) {
                     console.log(this.boss_Alert);
                     this.playAnimation(this.IMAGES_WALK);
-                    setInterval(() => {
+                    this.boss_Move = setInterval(() => {
                         this.x -= this.speed;
                     }, 200);
                 }

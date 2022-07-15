@@ -5,7 +5,6 @@ class MovableObject extends DrawableObject {
     speedY = 0;
     acceleration = 2.5;
     energy = 100;
-    bossenergy = 100;
     bottleBarEnergy = 100;
     lasthit = 0;
     //objectMinY;
@@ -91,24 +90,24 @@ class MovableObject extends DrawableObject {
     // BOSS COLLISION TODO - BETA
     
     bossHit(){
-        this.bossenergy -= 25; //dmg ratio for hit
-        console.log('boss hit', this.bossenergy);
-        if (this.bossenergy < 0) {
-            this.bossenergy = 0;
+        this.energy -= 25; //dmg ratio for hit
+        console.log('boss hit', this.energy);
+        if (this.energy < 0) {
+            this.energy = 0;
             //this.died_sound.play(); //new sound needed TODO
         } else {
-            this.lastHit = new Date().getTime();
+            this.blastHit = new Date().getTime();
             //this.hurt_sound.play(); //new sound needed TODO
         }
     }
 
     bossIsHurt() {
         let timepassed = new Date().getTime() - this.lastHit; // Difference in ms
-        timepassed = timepassed / 500; //differnece in s
-        return timepassed < 0.5; //returns TRUE
+        timepassed = timepassed / 1000; //differnece in s
+        return timepassed < 1; //returns TRUE
     }
 
     bossIsDead() {
-        return this.bossenergy == 0;
+        return this.energy == 0;
     }
 }

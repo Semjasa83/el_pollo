@@ -74,12 +74,7 @@ class World {
             if (this.character.isColliding(enemy)) {
                 this.character.hit();
                 this.statusBar.setPercentage(this.character.energy);
-                //console.log('Collision with Character, energy ', this.character.energy)
             }
-            /* NR
-            setInterval(() => {
-                this.chickenCollisionsWithBottle();
-            }, 200)*/
         });
     }
 
