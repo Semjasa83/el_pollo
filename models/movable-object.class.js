@@ -96,7 +96,7 @@ class MovableObject extends DrawableObject {
             this.energy = 0;
             //this.died_sound.play(); //new sound needed TODO
         } else {
-            this.blastHit = new Date().getTime();
+            this.lastHit = new Date().getTime();
             //this.hurt_sound.play(); //new sound needed TODO
         }
     }
