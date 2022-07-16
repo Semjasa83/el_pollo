@@ -69,11 +69,7 @@ class Endboss extends MovableObject {
                 this.playAnimation(this.IMAGES_HURT);
             } else {
                 if (this.boss_Alert == true) {
-                    console.log(this.boss_Alert);
-                    this.playAnimation(this.IMAGES_WALK);
-                    setInterval(() => {
-                        this.x -= this.speed;
-                    }, 200);
+                    this.bossAlert();
                 }
                 if (this.boss_Alert == false) {
                     this.playAnimation(this.IMAGES_ATK);
@@ -81,5 +77,14 @@ class Endboss extends MovableObject {
             }
         }, 250);
     }
+
+    bossAlert() {
+        console.log(this.boss_Alert);
+        this.playAnimation(this.IMAGES_WALK);
+        setInterval(() => {
+            this.x -= this.speed;
+        }, 200);
+    }
 }
+
 

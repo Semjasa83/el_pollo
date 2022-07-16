@@ -42,5 +42,4 @@ animate() {
         this.playAnimation(this.IMAGES_ROTATEBOTTLE);
     }, 150);
 }
-
 }

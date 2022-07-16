@@ -58,13 +58,16 @@ class MovableObject extends DrawableObject {
     }
 
 
-    // character.isColliging(chicken);
+    // Colliding for all usable
     isColliding(mo) {
         return this.x + this.width > mo.x &&
             this.y + this.height > mo.y &&
             this.x < mo.x &&
             this.y < mo.y + mo.height;
     }
+
+
+    /* CHARACTER COLLISION*/
 
     hit() {
         this.energy -= 5; //dmg ratio for hit
@@ -87,7 +90,8 @@ class MovableObject extends DrawableObject {
         return this.energy == 0;
     }
 
-    // BOSS COLLISION TODO - BETA
+
+    /* BOSS COLLISION */
     
     bossHit(){
         this.energy -= 25; //dmg ratio for hit
