@@ -13,6 +13,13 @@ class Character extends MovableObject {
 
     boss_Stage = false;
 
+    offset = {
+        top: 120,
+        left: 30,
+        right: 30,
+        bottom: 30
+    };
+
 
     IMAGES_WALKING = [
         'img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-21.png',

@@ -207,11 +207,12 @@ class World {
      */
 
     addToMap(mo) {
-        if (mo.otherDirection) { //wird das object in eine andere Richtung bewegt?
+        if (mo.otherDirection) { //if move object to other Direction
             this.flipImage(mo);
         }
         this.drawImageObject(mo);
         this.drawFrame(mo);
+        this.drawOffsetFrame(mo);
         if (mo.otherDirection) { //if ctx has been changed, it is undone here
             this.flipImageBack(mo);
         }
@@ -234,6 +235,16 @@ class World {
             this.ctx.lineWidth = '1';
             this.ctx.strokeStyle = 'blue';
             this.ctx.rect(mo.x, mo.y, mo.width, mo.height);
+            this.ctx.stroke();
+        }
+    }
+
+    drawOffsetFrame(mo) {
+        if (mo instanceof Character || mo instanceof Chicken || mo instanceof Bottles || mo instanceof Coins || mo instanceof Endboss) {
+            this.ctx.beginPath();
+            this.ctx.lineWidth = '1';
+            this.ctx.strokeStyle = 'red';
+            this.ctx.rect(mo.offset.top, mo.offset.left, mo.offset.right, mo.offset.bottom);
             this.ctx.stroke();
         }
     }
