@@ -32,6 +32,9 @@ class MovableObject extends DrawableObject {
         if (this instanceof ThrowableObject) { //Throwable shut always fall
             return true;
         } else {
+            if (world.character.y > 190) {
+                world.character.y = 190;
+            }
             return this.y < 190; //HÖHE BOSS EINSTELLEN
         }
 
