@@ -244,7 +244,7 @@ class World {
             this.ctx.beginPath();
             this.ctx.lineWidth = '1';
             this.ctx.strokeStyle = 'red';
-            this.ctx.rect(mo.offset.top, mo.offset.left, mo.offset.right, mo.offset.bottom);
+            this.ctx.rect(mo.x, mo.y, mo.width, mo.height);
             this.ctx.stroke();
         }
     }
