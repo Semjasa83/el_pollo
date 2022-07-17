@@ -55,7 +55,7 @@ class Endboss extends MovableObject {
         this.loadImages(this.IMAGES_HURT);
         this.loadImages(this.IMAGES_DEAD);
         this.loadImages(this.IMAGES_WALK);
-        this.x = 3300;
+        this.x = 4800;
         this.animate();
     }
 
@@ -70,6 +70,7 @@ class Endboss extends MovableObject {
             } else {
                 if (this.boss_Alert == true) {
                     this.bossAlert();
+                    console.log(this.bossAlert);
                 }
                 if (this.boss_Alert == false) {
                     this.playAnimation(this.IMAGES_ATK);

@@ -34,11 +34,13 @@ class World {
     /**
      * for hand over the Instanz 
      */
-
     setWorld() {
         this.character.world = this;
     }
 
+    /**
+     * checks Collisions for Items at short Interval
+     */
     gameCheckRate() {
         setInterval(() => {
             this.openEndscreen();
@@ -50,6 +52,10 @@ class World {
 
     openEndscreen() {
         if (world.character.isDead()) {
+            this.endScreen = new Endscreen();
+        }
+
+        if (world.level.enemies[0].bossIsDead()) {
             this.endScreen = new Endscreen();
         }
 
@@ -84,9 +90,7 @@ class World {
             this.throwableObjects.forEach(bottle => {
                 if (enemy.isColliding(bottle)) {
                     if (enemy instanceof Endboss) {
-                        console.log('kv enemy', enemy);
                         enemy.bossHit();
-                        console.log('energy', enemy.energy);
                     } else {
                         enemy.energy -= 1;
                     }
@@ -122,9 +126,12 @@ class World {
         })
     }
 
-
+    /**
+     * shows and creates the Background 
+     * add j < 10 only at +2 values!!!
+     */
     loopBackgroundsToMap() {
-        for (let j = 0; j < 8; j += 2) {
+        for (let j = 0; j < 10; j += 2) {
             for (let i = 0; i < this.level.backgroundObjects.length; i++) {
                 const copy = Object.assign({}, this.level.backgroundObjects[i]);
                 copy.x = copy.x + 719 * j;
@@ -134,8 +141,8 @@ class World {
     }
 
     /**
-     *  correct Order for Z-Index on Canvas
-     *  first Line, first Layer ....
+     *  Draws the all Objects into the Canvas
+     *  info: correct Order for Z-Index on Canvas first Line, first Layer ....
      */
 
     draw() {
@@ -166,7 +173,7 @@ class World {
     }
 
     addedWorldMusic() {
-        this.world_music.volume = 0.1; //set Volume for Music
+        this.world_music.volume = 0.2; //set Volume for Music
         this.world_music.play();
     }
 
@@ -218,7 +225,7 @@ class World {
      * reactivate this Function in "addToMap" and here, if you want to optimize Collision
      * shows Frames around your Objects
      * add more Objects with || mo instanceof CLASS
-     * @param {path} mo - path to your Classes in Level.class.js
+     * @param {movableObjects} mo - path to your Classes in Level.class.js
      */
 
     drawFrame(mo) {

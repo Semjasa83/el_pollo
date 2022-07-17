@@ -20,7 +20,7 @@ class Chicken extends MovableObject {
     constructor() {
         super().loadImage('img/3.Secuencias_Enemy_b_sico/Versi¢n_Gallinita (estas salen por orden de la gallina gigantona)/1.Ga_paso_derecho.png');
         this.loadImages(this.IMAGES_WALKING);
-        this.x = 450 + Math.random() * 3000; //sets Spawn for Chickens
+        this.x = 450 + Math.random() * 3800; //sets Spawn for Chickens
         this.speed = 0.3 + Math.random() * 0.35; //sets Speed for Chickens
 
         this.animate();
@@ -39,7 +39,7 @@ class Chicken extends MovableObject {
             if (this.x > -100) {
                 this.x -= this.speed;
             } else {
-                this.x = 2600;
+                this.x = 3800;
                 this.x -= this.speed;
             }
         }, 1000 / 60);

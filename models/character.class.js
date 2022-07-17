@@ -3,13 +3,16 @@ class Character extends MovableObject {
 
     /**
     * 
-    * @param {*} world - to be able to access the variables of the world including the keyboard
+    * @param {var} world - to be able to access the variables of the world including the keyboard
     */
     world;
     x = 50;
     height = 240;
     width = 120;
     speed = 7;
+
+    boss_Stage = false;
+
 
     IMAGES_WALKING = [
         'img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-21.png',
@@ -58,8 +61,6 @@ class Character extends MovableObject {
     hurt_sound = new Audio('audio/hurt.mp3');
     died_sound = new Audio('audio/died.mp3');
 
-    boss_Stage = false;
-
     constructor() {
         super().loadImage('img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-21.png');
         //this.objectMinY = 119;
@@ -84,7 +85,7 @@ class Character extends MovableObject {
                 this.moveRight();
                 this.walking_sound.play();
             }
-            if (this.world.keyboard.LEFT && this.x > 0 && this.x < 2780) { //&& blocks the x direction at 0 for the player
+            if (this.world.keyboard.LEFT && this.x > 0 && this.x < 3880) { //&& blocks the x direction at 0 for the player
                 this.moveLeft();
                 this.walking_sound.play();
             }
@@ -92,18 +93,18 @@ class Character extends MovableObject {
                 this.jump();
                 this.jumping_sound.play();
             }
-            if (this.x > 2800 && this.world.keyboard.RIGHT){
+            if (this.x > 3900 && this.world.keyboard.RIGHT){
                 this.boss_Stage = true;
                 this.otherDirection = false;
             }
-            if(this.x > 2800 && this.world.keyboard.LEFT) {
+            if(this.x > 3900 && this.world.keyboard.LEFT) {
                 this.boss_Stage = true;
                 this.otherDirection = true;
                 this.moveLeft();
             }
-            if(this.x > 2900) {
+            if(this.x > 4400) {
                 this.world.level.enemies[0].boss_Alert = true;
-                //console.log('char', this.world.level.enemies[0].boss_Alert);
+                console.log('char', this.world.level.enemies[0].boss_Alert);
             }
             this.world.camera_x = - this.x + 50; //positions the character 50px away from Start Border
         }, 1000 / 60);
