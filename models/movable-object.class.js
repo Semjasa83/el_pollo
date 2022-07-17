@@ -34,6 +34,7 @@ class MovableObject extends DrawableObject {
         } else {
             return this.y < 190; //HÖHE BOSS EINSTELLEN
         }
+
     }
 
     /**

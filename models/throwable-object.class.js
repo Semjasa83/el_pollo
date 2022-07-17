@@ -30,8 +30,8 @@ throw(){
     this.speedY = 10;
     this.applyGravity();
     setInterval(() => {
-        this.x += 30;
-    }, 30);
+        this.x += 55;
+    }, 75);
 }
 
 /**
@@ -40,6 +40,6 @@ throw(){
 animate() {
     setInterval(() => {
         this.playAnimation(this.IMAGES_ROTATEBOTTLE);
-    }, 150);
+    }, 50);
 }
 }
