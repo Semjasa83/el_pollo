@@ -211,7 +211,7 @@ class World {
             this.flipImage(mo);
         }
         this.drawImageObject(mo);
-        this.drawFrame(mo);
+        //this.drawFrame(mo);
         this.drawOffsetFrame(mo);
         if (mo.otherDirection) { //if ctx has been changed, it is undone here
             this.flipImageBack(mo);
@@ -228,7 +228,7 @@ class World {
      * add more Objects with || mo instanceof CLASS
      * @param {movableObjects} mo - path to your Classes in Level.class.js
      */
-
+/*
     drawFrame(mo) {
         if (mo instanceof Character || mo instanceof Chicken || mo instanceof Bottles || mo instanceof Coins || mo instanceof Endboss) {
             this.ctx.beginPath();
@@ -238,7 +238,7 @@ class World {
             this.ctx.stroke();
         }
     }
-
+*/
     drawOffsetFrame(mo) {
         if (mo instanceof Character || mo instanceof Chicken || mo instanceof Bottles || mo instanceof Coins || mo instanceof Endboss) {
             this.ctx.beginPath();
