@@ -100,26 +100,24 @@ class World {
     }
 
     bottleCollision() {
-        this.level.bottles.forEach((bottle) => {
+        this.level.bottles.forEach((bottle, index) => {
             if (bottle.width > 0 && bottle.height > 0) {
                 if (this.character.isColliding(bottle)) {
-                    bottle.width = 0;
-                    bottle.height = 0;
                     this.bottleBar.collectBottle();
                     this.bottleBar.setPercentage(this.bottleBar.percentage);
+                    this.level.bottles.splice(index, 1);
                 }
             }
         })
     }
 
     coinCollision() {
-        this.level.coins.forEach((coin) => {
+        this.level.coins.forEach((coin, index) => {
             if (coin.width > 0 && coin.height > 0) {
                 if (this.character.isColliding(coin)) {
-                    coin.width = 0;
-                    coin.height = 0;
                     this.coinBar.collectCoin();
                     this.coinBar.setPercentage(this.coinBar.percentage);
+                    this.level.coins.splice(index, 1);
                     //console.log(this.coinBar.percentage);
                 }
             }
