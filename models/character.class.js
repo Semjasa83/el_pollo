@@ -14,10 +14,10 @@ class Character extends MovableObject {
     boss_Stage = false;
 
     offset = {
-        top: 80,
+        top: 90,
         left: 20,
         right: 30,
-        bottom: 90
+        bottom: 100
     };
 
 
