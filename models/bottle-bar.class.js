@@ -35,6 +35,10 @@ class BottleBar extends DrawableObject {
         this.coin_sound.play();
     }
 
+    removeBottle() {
+        this.percentage -= 10;
+    }
+
     resolveImageIndex() {
         if (this.percentage >= 100) {
             return 5;

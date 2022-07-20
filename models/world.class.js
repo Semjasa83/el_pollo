@@ -57,8 +57,7 @@ class World {
         if (this.endScreen) {
             this.addToMap(this.endScreen);
         }
-        //loop function to animate
-        let self = this;
+        let self = this;        //loop function to animate
         requestAnimationFrame(function () {
             self.draw();
         });
@@ -115,7 +114,6 @@ class World {
             this.flipImage(mo);
         }
         this.drawImageObject(mo);
-        //this.drawFrame(mo);
         this.drawOffsetFrame(mo);
         if (mo.otherDirection) { //if ctx has been changed, it is undone here
             this.flipImageBack(mo);
@@ -190,6 +188,7 @@ class World {
             let bottle = new ThrowableObject(this.character.x + 70, this.character.y + 110);
             this.throwableObjects.push(bottle);
             world.ammo.splice(-1);
+            this.bottleBar.removeBottle();
         }
     }
 
