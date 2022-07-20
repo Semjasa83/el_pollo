@@ -14,6 +14,8 @@ class World {
     keyboard;
     endScreen;
     world_music = new Audio('audio/music1.mp3');
+    ammo = [];
+    coin = [];
 
     /**
      * 
@@ -69,9 +71,10 @@ class World {
     }
 
     checkThrowObjects() {
-        if (this.keyboard.D) {
+        if (this.keyboard.D && world.ammo.length > 0) {
             let bottle = new ThrowableObject(this.character.x + 70, this.character.y + 110);
             this.throwableObjects.push(bottle);
+            this.ammo.splice(amount, -1);
         }
     }
 
@@ -105,10 +108,19 @@ class World {
                 if (this.character.isColliding(bottle)) {
                     this.bottleBar.collectBottle();
                     this.bottleBar.setPercentage(this.bottleBar.percentage);
+                    this.collectedBottles(1);
                     this.level.bottles.splice(index, 1);
                 }
             }
         })
+    }
+
+    /**
+     * Bottle Count for Ammunition
+     * @param {count} amount - of Bottles collectec 
+     */
+    collectedBottles(amount) {
+        this.ammo.push(amount);
     }
 
     coinCollision() {
@@ -117,11 +129,20 @@ class World {
                 if (this.character.isColliding(coin)) {
                     this.coinBar.collectCoin();
                     this.coinBar.setPercentage(this.coinBar.percentage);
+                    this.collectedCoins(1);
                     this.level.coins.splice(index, 1);
                     //console.log(this.coinBar.percentage);
                 }
             }
         })
+    }
+
+    /**
+     * Coin Count for healing
+     * @param {count} amount - of Coins collected 
+     */
+    collectedCoins(amount) {
+        this.coin.push(amount);
     }
 
     /**
@@ -226,23 +247,23 @@ class World {
      * add more Objects with || mo instanceof CLASS
      * @param {movableObjects} mo - path to your Classes in Level.class.js
      */
-/*
-    drawFrame(mo) {
-        if (mo instanceof Character || mo instanceof Chicken || mo instanceof Bottles || mo instanceof Coins || mo instanceof Endboss) {
-            this.ctx.beginPath();
-            this.ctx.lineWidth = '1';
-            this.ctx.strokeStyle = 'blue';
-            this.ctx.rect(mo.x, mo.y, mo.width, mo.height);
-            this.ctx.stroke();
+    /*
+        drawFrame(mo) {
+            if (mo instanceof Character || mo instanceof Chicken || mo instanceof Bottles || mo instanceof Coins || mo instanceof Endboss) {
+                this.ctx.beginPath();
+                this.ctx.lineWidth = '1';
+                this.ctx.strokeStyle = 'blue';
+                this.ctx.rect(mo.x, mo.y, mo.width, mo.height);
+                this.ctx.stroke();
+            }
         }
-    }
-*/
+    */
     drawOffsetFrame(mo) {
         if (mo instanceof Character || mo instanceof Chicken || mo instanceof Bottles || mo instanceof Coins || mo instanceof Endboss) {
             this.ctx.beginPath();
             this.ctx.lineWidth = '1';
             this.ctx.strokeStyle = 'red';
-            this.ctx.rect(mo.x + mo.offset.left, mo.y + mo.offset.top , mo.width - mo.offset.right, mo.height - mo.offset.bottom);
+            this.ctx.rect(mo.x + mo.offset.left, mo.y + mo.offset.top, mo.width - mo.offset.right, mo.height - mo.offset.bottom);
             this.ctx.stroke();
         }
     }

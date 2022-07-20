@@ -9,6 +9,7 @@ class BottleBar extends DrawableObject {
         'img/7.Marcadores/Barra/Marcador_botella/Naranja/100.png'
     ]
 
+    
     percentage = 0;
     coin_sound = new Audio('audio/coin.mp3');
 
