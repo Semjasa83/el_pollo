@@ -186,7 +186,7 @@ class World {
     }
 
     checkThrowObjects() {
-        if (this.keyboard.D && world.ammo > 0) {
+        if (this.keyboard.D && world.ammo.length > 0) {
             let bottle = new ThrowableObject(this.character.x + 70, this.character.y + 110);
             this.throwableObjects.push(bottle);
             world.ammo.splice(-1);
