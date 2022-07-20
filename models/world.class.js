@@ -34,10 +34,34 @@ class World {
     }
 
     /**
-     * for hand over the Instanz 
+     * for hand over the Instance 
      */
     setWorld() {
         this.character.world = this;
+    }
+
+    /******* MAIN FUNCTIONS *******/
+
+    /**
+     *  Draws the all Objects into the Canvas
+     *  info: correct Order for Z-Index on Canvas first Line, first Layer ....
+     */
+    draw() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.translate(this.camera_x, 0);
+        this.addedObjects();
+        this.addFixedStatusBars();
+        this.addToMap(this.character);
+        this.addedWorldMusic();
+        this.ctx.translate(-this.camera_x, 0);
+        if (this.endScreen) {
+            this.addToMap(this.endScreen);
+        }
+        //loop function to animate
+        let self = this;
+        requestAnimationFrame(function () {
+            self.draw();
+        });
     }
 
     /**
@@ -52,6 +76,57 @@ class World {
         }, 50);
     }
 
+    addedWorldMusic() {
+        this.world_music.volume = 0.2; //set Volume for Music
+        this.world_music.play();
+    }
+
+    addedObjects() {
+        this.loopBackgroundsToMap();
+        this.addObjectsToMap(this.level.clouds);
+        this.addObjectsToMap(this.level.enemies);
+        this.addObjectsToMap(this.throwableObjects);
+        this.addObjectsToMap(this.collectableObjects);
+        this.addObjectsToMap(this.level.bottles);
+        this.addObjectsToMap(this.level.coins);
+    }
+
+    /**
+     * put objects into Canvas 
+     * level.clouds / level. enemies etc.
+     * 
+     * @param {path} objects - all objects on Canvas
+     */
+
+    addObjectsToMap(objects) {
+        objects.forEach(object => {
+            this.addToMap(object);
+        });
+    }
+
+    /**
+     * shown in addObjectsToMap "objects"
+     * level.clouds / level.enemies
+     * @param {path} mo - objects -> level.clouds / level.enemies etc. 
+     */
+
+    addToMap(mo) {
+        if (mo.otherDirection) { //if move object to other Direction
+            this.flipImage(mo);
+        }
+        this.drawImageObject(mo);
+        //this.drawFrame(mo);
+        this.drawOffsetFrame(mo);
+        if (mo.otherDirection) { //if ctx has been changed, it is undone here
+            this.flipImageBack(mo);
+        }
+    }
+
+    drawImageObject(mo) {
+        this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
+    }
+
+
     openEndscreen() {
         if (world.character.isDead()) {
             this.endScreen = new Endscreen();
@@ -63,18 +138,58 @@ class World {
 
     }
 
+    flipImage(mo) {
+        this.ctx.save(); //save Pictures
+        this.ctx.translate(mo.width, 0);//closes the gap at Canvas to Character 
+        this.ctx.scale(-1, 1);//swap Pictures from Right to Left if needed
+        mo.x = mo.x * -1; //swaps the x - coordinates
+    }
+
+    flipImageBack(mo) {
+        mo.x = mo.x * -1;
+        this.ctx.restore();
+    }
+
+
+    addFixedStatusBars() {
+        this.ctx.translate(-this.camera_x, 0);
+        // ----- Space for fixed objects ------
+        this.addToMap(this.statusBar);
+        this.addToMap(this.coinBar);
+        this.addToMap(this.bottleBar);
+        this.ctx.translate(this.camera_x, 0);
+    }
+
+    /******* COLLISIONS *******/
+
+    /**
+     * reactivate this Function in "addToMap" and here, if you want to optimize Collision
+     * shows Frames around your Objects
+     * add more Objects with || mo instanceof CLASS
+     * @param {movableObjects} mo - path to your Classes in Level.class.js
+     */
+    drawOffsetFrame(mo) {
+        if (mo instanceof Character || mo instanceof Chicken || mo instanceof Bottles || mo instanceof Coins || mo instanceof Endboss) {
+            this.ctx.beginPath();
+            this.ctx.lineWidth = '1';
+            this.ctx.strokeStyle = 'red';
+            this.ctx.rect(mo.x + mo.offset.left, mo.y + mo.offset.top, mo.width - mo.offset.right, mo.height - mo.offset.bottom);
+            this.ctx.stroke();
+        }
+    }
+
     run() {
         setInterval(() => {
             this.checkCollisions();
             this.checkThrowObjects();
-        }, 200);
+        }, 100);
     }
 
     checkThrowObjects() {
-        if (this.keyboard.D && world.ammo.length > 0) {
+        if (this.keyboard.D && world.ammo > 0) {
             let bottle = new ThrowableObject(this.character.x + 70, this.character.y + 110);
             this.throwableObjects.push(bottle);
-            this.ammo.splice(amount, -1);
+            world.ammo.splice(-1);
         }
     }
 
@@ -157,126 +272,5 @@ class World {
                 this.addToMap(copy);
             }
         }
-    }
-
-    /**
-     *  Draws the all Objects into the Canvas
-     *  info: correct Order for Z-Index on Canvas first Line, first Layer ....
-     */
-
-    draw() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.ctx.translate(this.camera_x, 0);
-        this.addedObjects();
-        this.addFixedStatusBars();
-        this.addToMap(this.character);
-        this.addedWorldMusic();
-        this.ctx.translate(-this.camera_x, 0);
-        if (this.endScreen) {
-            this.addToMap(this.endScreen);
-        }
-        //loop function to animate
-        let self = this;
-        requestAnimationFrame(function () {
-            self.draw();
-        });
-    }
-
-    addFixedStatusBars() {
-        this.ctx.translate(-this.camera_x, 0);
-        // ----- Space for fixed objects ------
-        this.addToMap(this.statusBar);
-        this.addToMap(this.coinBar);
-        this.addToMap(this.bottleBar);
-        this.ctx.translate(this.camera_x, 0);
-    }
-
-    addedWorldMusic() {
-        this.world_music.volume = 0.2; //set Volume for Music
-        this.world_music.play();
-    }
-
-    addedObjects() {
-        this.loopBackgroundsToMap();
-        this.addObjectsToMap(this.level.clouds);
-        this.addObjectsToMap(this.level.enemies);
-        this.addObjectsToMap(this.throwableObjects);
-        this.addObjectsToMap(this.collectableObjects);
-        this.addObjectsToMap(this.level.bottles);
-        this.addObjectsToMap(this.level.coins);
-    }
-
-    /**
-     * put objects into Canvas 
-     * level.clouds / level. enemies etc.
-     * 
-     * @param {path} objects - all objects on Canvas
-     */
-
-    addObjectsToMap(objects) {
-        objects.forEach(object => {
-            this.addToMap(object);
-        });
-    }
-
-    /**
-     * shown in addObjectsToMap "objects"
-     * level.clouds / level.enemies
-     * @param {path} mo - objects -> level.clouds / level.enemies etc. 
-     */
-
-    addToMap(mo) {
-        if (mo.otherDirection) { //if move object to other Direction
-            this.flipImage(mo);
-        }
-        this.drawImageObject(mo);
-        //this.drawFrame(mo);
-        this.drawOffsetFrame(mo);
-        if (mo.otherDirection) { //if ctx has been changed, it is undone here
-            this.flipImageBack(mo);
-        }
-    }
-
-    drawImageObject(mo) {
-        this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
-    }
-
-    /**
-     * reactivate this Function in "addToMap" and here, if you want to optimize Collision
-     * shows Frames around your Objects
-     * add more Objects with || mo instanceof CLASS
-     * @param {movableObjects} mo - path to your Classes in Level.class.js
-     */
-    /*
-        drawFrame(mo) {
-            if (mo instanceof Character || mo instanceof Chicken || mo instanceof Bottles || mo instanceof Coins || mo instanceof Endboss) {
-                this.ctx.beginPath();
-                this.ctx.lineWidth = '1';
-                this.ctx.strokeStyle = 'blue';
-                this.ctx.rect(mo.x, mo.y, mo.width, mo.height);
-                this.ctx.stroke();
-            }
-        }
-    */
-    drawOffsetFrame(mo) {
-        if (mo instanceof Character || mo instanceof Chicken || mo instanceof Bottles || mo instanceof Coins || mo instanceof Endboss) {
-            this.ctx.beginPath();
-            this.ctx.lineWidth = '1';
-            this.ctx.strokeStyle = 'red';
-            this.ctx.rect(mo.x + mo.offset.left, mo.y + mo.offset.top, mo.width - mo.offset.right, mo.height - mo.offset.bottom);
-            this.ctx.stroke();
-        }
-    }
-
-    flipImage(mo) {
-        this.ctx.save(); //save Pictures
-        this.ctx.translate(mo.width, 0);//closes the gap at Canvas to Character 
-        this.ctx.scale(-1, 1);//swap Pictures from Right to Left if needed
-        mo.x = mo.x * -1; //swaps the x - coordinates
-    }
-
-    flipImageBack(mo) {
-        mo.x = mo.x * -1;
-        this.ctx.restore();
     }
 }

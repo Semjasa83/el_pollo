@@ -7,6 +7,8 @@ class MovableObject extends DrawableObject {
     energy = 100;
     bottleBarEnergy = 100;
     lasthit = 0;
+    chicken_hit = new Audio('audio/chickendmg.mp3');
+    chicken_died = new Audio('audio/chickendied.mp3');
 
     offset = {
         top: 0,
@@ -77,7 +79,7 @@ class MovableObject extends DrawableObject {
     }
 
 
-    /* CHARACTER COLLISION*/
+    /** CHARACTER COLLISION **/
 
     hit() {
         this.energy -= 5; //dmg ratio for hit
@@ -101,17 +103,16 @@ class MovableObject extends DrawableObject {
     }
 
 
-    /* BOSS COLLISION */
+    /** BOSS COLLISION **/
     
     bossHit(){
         this.energy -= 25; //dmg ratio for hit
         console.log('boss hit', this.energy);
         if (this.energy < 0) {
             this.energy = 0;
-            //this.died_sound.play(); //new sound needed TODO
         } else {
             this.lastHit = new Date().getTime();
-            //this.hurt_sound.play(); //new sound needed TODO
+            this.chicken_hit.play();
         }
     }
 

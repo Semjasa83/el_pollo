@@ -3,6 +3,7 @@ class Endboss extends MovableObject {
     width = 250;
     height = 300;
     energy = 400;
+    chicken_atk = new Audio('audio/chickenatk.mp3');
 
 
     IMAGES_WALK = [
@@ -64,7 +65,6 @@ class Endboss extends MovableObject {
             if (this.bossIsDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
                 this.speed = 0;
-                //clearInterval(this.moveLeft(), this.boss_Move);
             } else if (this.bossIsHurt()) {
                 this.playAnimation(this.IMAGES_HURT);
             } else {
@@ -80,8 +80,8 @@ class Endboss extends MovableObject {
     }
 
     bossAlert() {
-        console.log(this.boss_Alert);
         this.playAnimation(this.IMAGES_WALK);
+        //this.chicken_atk.play();
         setInterval(() => {
             this.x -= this.speed;
         }, 200);
