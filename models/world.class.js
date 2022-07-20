@@ -189,6 +189,7 @@ class World {
             this.throwableObjects.push(bottle);
             world.ammo.splice(-1);
             this.bottleBar.removeBottle();
+            this.bottleBar.setPercentage();
         }
     }
 
