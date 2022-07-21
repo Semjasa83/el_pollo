@@ -33,6 +33,7 @@ class Chicken extends MovableObject {
     constructor() {
         super().loadImage('img/3.Secuencias_Enemy_b_sico/Versi¢n_Gallinita_(estas_salen_por_orden_de_la_gallina_gigantona)/1.Ga_paso_derecho.png');
         this.loadImages(this.IMAGES_WALKING);
+        this.loadImages(this.IMAGES_DEAD);
         this.x = 450 + Math.random() * 3800; //sets Spawn for Chickens
         this.speed = 0.3 + Math.random() * 0.35; //sets Speed for Chickens
         this.animate();
