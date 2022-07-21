@@ -195,7 +195,7 @@ class World {
 
     checkCollisions() {
         this.level.enemies.forEach((enemy) => {
-            if (this.character.isColliding(enemy)) {
+            if (this.character.isColliding(enemy) && !enemy.isDead()) {
                 if (world.character.y < 190) {
                     enemy.energy -= 1;
                 } else {
