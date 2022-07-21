@@ -197,7 +197,7 @@ class World {
         this.level.enemies.forEach((enemy) => {
             if (this.character.isColliding(enemy)) {
                 if (world.character.y < 190) {
-                    enemy.energy = 0;
+                    enemy.energy -= 1;
                 } else {
                     this.character.hit();
                     this.statusBar.setPercentage(this.character.energy);
