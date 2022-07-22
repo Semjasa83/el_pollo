@@ -23,8 +23,6 @@ class Chicken extends MovableObject {
         'img/3.Secuencias_Enemy_b_sico/Versi¢n_Gallinita_(estas_salen_por_orden_de_la_gallina_gigantona)/4.G_muerte.png'
     ];
 
-    chicken_kill_sound = new Audio('audio/chicken.mp3');
-
     /**
     * override from speed at movable-objects.class.js
     * 

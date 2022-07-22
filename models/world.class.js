@@ -14,6 +14,7 @@ class World {
     keyboard;
     endScreen;
     world_music = new Audio('audio/music1.mp3');
+    chicken_kill_sound = new Audio('audio/chicken.mp3');
     ammo = [];
     coin = [];
 
@@ -133,7 +134,6 @@ class World {
         if (world.level.enemies[0].bossIsDead()) {
             this.endScreen = new Endscreen();
         }
-
     }
 
     flipImage(mo) {
@@ -198,6 +198,9 @@ class World {
             if (this.character.isColliding(enemy) && !enemy.isDead()) {
                 if (world.character.y < 190) {
                     enemy.energy -= 1;
+                    if (enemy.isDead()) {
+                        this.chicken_kill_sound.play();
+                    }
                 } else {
                     this.character.hit();
                     this.statusBar.setPercentage(this.character.energy);
