@@ -15,6 +15,7 @@ class World {
     endScreen;
     world_music = new Audio('audio/music1.mp3');
     chicken_kill_sound = new Audio('audio/chicken.mp3');
+    cooldown = false;
     ammo = [];
     coin = [];
 
@@ -184,13 +185,18 @@ class World {
     }
 
     checkThrowObjects() {
-        if (this.keyboard.D && world.ammo.length > 0) {
+        if (this.keyboard.D && world.ammo.length > 0 && this.cooldown == false) {
+            this.cooldown = true;
             let bottle = new ThrowableObject(this.character.x + 70, this.character.y + 110);
             this.throwableObjects.push(bottle);
             world.ammo.splice(-1);
             this.bottleBar.removeBottle();
             this.bottleBar.setPercentage();
+            setTimeout(() => {
+                this.cooldown = false 
+            }, 1000);
         }
+
     }
 
     checkCollisions() {
