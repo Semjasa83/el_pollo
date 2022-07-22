@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg" href="img/other_img/favicon.svg">
     <link rel="stylesheet" href="style.css">
 
@@ -34,17 +37,24 @@
 </head>
 
 <body>
-    <h1 class="title">El Pollo loco</h1>
-    <div id="startscreen">
-        <img id="startscreen_img" src="img/9.Intro_Outro_Image/Start_Screen/Option2.png">
-        <button id="gameStartButton" onclick="startGame()">Start</button>
+    <div class="bgr">
+        <div class="bgr-layer">
+            <h1 class="title">El Pollo loco</h1>
+            <div id="startscreen">
+                <img id="startscreen_img" src="img/9.Intro_Outro_Image/Start_Screen/Option2.png">
+                <button id="gameStartButton" class="button-33 btn-33" onclick="startGame()">Start</button>
+            </div>
+            <div id="game-guide-container">
+                <div class="game-guide">
+                    <span class="button-33">D = Throw</span>
+                    <span class="button-33">Spacebar = Jump</span>
+                    <span class="button-33">Move with Arrow Keys</span>
+                </div>
+            </div>
+            <canvas id="canvas" width="720" height="480" class="hide"></canvas>
+        </div>
     </div>
-    <canvas id="canvas" width="720" height="480" class="hide"></canvas>
-    <div class="game-guide"> 
-        <span>D = Throw</span>
-        <span>Spacebar = Jump</span>
-        <span>Move with Arrow Keys</span>
-    </div>
+
 
 
 </body>

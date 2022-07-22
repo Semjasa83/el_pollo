@@ -5,6 +5,7 @@ let keyboard = new Keyboard();
 function startGame() {
     document.getElementById("startscreen_img").classList.add("hide");
     document.getElementById("gameStartButton").classList.add("hide");
+    document.getElementById("game-guide-container").classList.add("hide");
     document.getElementById("canvas").classList.remove("hide");
     init();
 }

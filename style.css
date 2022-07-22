@@ -1,8 +1,27 @@
 body {
+    font-family: 'Gravitas One', cursive;
+    margin: 0;
+    padding: 0;
+}
+
+.bgr {
+    background-image: url(img/single-bgr.jpg);
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.bgr-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff190030, #ffffff30, #31aa2c30);
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
 }
 
 canvas {
@@ -24,12 +43,42 @@ canvas {
 
 #gameStartButton {
     position: absolute;
-    bottom: 5%;
-    width: 140px;
-    height: 30px;
-    border: 2px solid black;
-    background-color: #fbd21c;
-    border-radius: 6px;
+    right: 5%;
+    bottom: 4%;
+    width: 200px;
+}
+
+.button-33 {
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+    color: green;
+    display: inline-block;
+    font-family: 'Gravitas One', cursive;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 12px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btn-33 {
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.btn-33:hover {
+    box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+#game-guide-container {
+    top: 100px;
+    position: absolute;
 }
 
 .game-guide {
