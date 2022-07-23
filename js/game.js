@@ -16,9 +16,16 @@ function startGame() {
  * load the World on Canvas
  */
 function init() {
-    canvas = document.getElementById('canvas'); 
+    canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
     console.log('My Character is', world.character); // oder world[`character`]
+    fullscreen();
+}
+
+function fullscreen() {
+    canvas = document.getElementById('canvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 }
 
 /**
@@ -28,54 +35,54 @@ function init() {
  */
 
 document.addEventListener('keydown', (e) => {
-    if(e.keyCode == 39 ) {
+    if (e.keyCode == 39) {
         keyboard.RIGHT = true;
     }
 
-    if(e.keyCode == 37 ) {
+    if (e.keyCode == 37) {
         keyboard.LEFT = true;
     }
 
-    if(e.keyCode == 38 ) {
+    if (e.keyCode == 38) {
         keyboard.UP = true;
     }
 
-    if(e.keyCode == 40 ) {
+    if (e.keyCode == 40) {
         keyboard.DOWN = true;
     }
 
-    if(e.keyCode == 32 ) {
+    if (e.keyCode == 32) {
         keyboard.SPACE = true;
     }
 
-    if(e.keyCode == 68 ) {
+    if (e.keyCode == 68) {
         keyboard.D = true;
     }
     //console.log(e);
 });
 
 document.addEventListener('keyup', (e) => {
-    if(e.keyCode == 39 ) {
+    if (e.keyCode == 39) {
         keyboard.RIGHT = false;
     }
 
-    if(e.keyCode == 37 ) {
+    if (e.keyCode == 37) {
         keyboard.LEFT = false;
     }
 
-    if(e.keyCode == 38 ) {
+    if (e.keyCode == 38) {
         keyboard.UP = false;
     }
 
-    if(e.keyCode == 40 ) {
+    if (e.keyCode == 40) {
         keyboard.DOWN = false;
     }
 
-    if(e.keyCode == 32 ) {
+    if (e.keyCode == 32) {
         keyboard.SPACE = false;
     }
 
-    if(e.keyCode == 68 ) {
+    if (e.keyCode == 68) {
         keyboard.D = false;
     }
     //console.log(e);
