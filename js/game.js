@@ -17,17 +17,15 @@ function startGame() {
  */
 function init() {
     canvas = document.getElementById('canvas');
+    initLevel();
     world = new World(canvas, keyboard);
     console.log('My Character is', world.character); // oder world[`character`]
-    fullscreen();
+    //fullscreen();
 }
 
 function fullscreen() {
     canvas = document.getElementById('canvas');
     canvas.requestFullscreen();
-    /*
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;*/
 }
 
 /**

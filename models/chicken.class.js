@@ -44,22 +44,22 @@ class Chicken extends MovableObject {
     }
 
     chickenMove() {
-        setInterval( () => { // for moving left the Chickens
+        setInterval(() => { // for moving left the Chickens
             if (this.energy <= 0) {
                 this.speed = 0;
             } else {
-            this.x -= this.speed;
+                this.x -= this.speed;
             }
         }, 1000 / 60);
     }
 
     chickenAnimation() {
         setInterval(() => {
-            if(this.energy <= 0) {
-            this.playAnimation(this.IMAGES_DEAD);
-        } else {
-            this.playAnimation(this.IMAGES_WALKING);
-        }
+            if (this.energy <= 0) {
+                this.playAnimation(this.IMAGES_DEAD);
+            } else {
+                this.playAnimation(this.IMAGES_WALKING);
+            }
         }, 250);
     }
 

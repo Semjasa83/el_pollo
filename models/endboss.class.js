@@ -2,7 +2,7 @@ class Endboss extends MovableObject {
     y = 140;
     width = 250;
     height = 300;
-    energy = 400;
+    energy = 500;
     chicken_atk = new Audio('audio/chickenatk.mp3');
 
 
