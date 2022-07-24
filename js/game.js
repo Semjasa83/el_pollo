@@ -24,8 +24,10 @@ function init() {
 
 function fullscreen() {
     canvas = document.getElementById('canvas');
+    canvas.requestFullscreen();
+    /*
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = window.innerHeight;*/
 }
 
 /**
