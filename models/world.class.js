@@ -130,8 +130,10 @@ class World {
     openEndscreen() {
         if (world.character.isDead() || world.level.enemies[0].bossIsDead()) {
             this.endScreen = new Endscreen();
-        }
-        
+            setTimeout(() => {
+                clearInterval(world.level.enemies[0].animate(stopBoss))
+            }, 500);
+        }    
     }
 
     flipImage(mo) {
