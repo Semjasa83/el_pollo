@@ -4,6 +4,7 @@ class Chicken extends MovableObject {
     height = 50;
     width = 50;
     energy = 1;
+    stopChickenInterval;
 
     offset = {
         top: 0,
@@ -38,29 +39,31 @@ class Chicken extends MovableObject {
     }
 
     animate() {
+        this.stopChickenInterval = setInterval(() => {
         this.chickenMove();
         this.chickenAnimation();
+    },250);
         this.chickenSpawn();
     }
 
     chickenMove() {
-        setInterval(() => { // for moving left the Chickens
             if (this.energy <= 0) {
                 this.speed = 0;
             } else {
                 this.x -= this.speed;
             }
-        }, 1000 / 60);
+    }
+
+    stopChicken(){
+        clearInterval(this.stopChickenInterval);
     }
 
     chickenAnimation() {
-        setInterval(() => {
             if (this.energy <= 0) {
                 this.playAnimation(this.IMAGES_DEAD);
             } else {
                 this.playAnimation(this.IMAGES_WALKING);
             }
-        }, 250);
     }
 
     chickenSpawn() {
