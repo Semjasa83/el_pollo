@@ -132,7 +132,11 @@ class World {
             this.endScreen = new Endscreen();
             setTimeout(() => {
                 world.level.enemies[0].stopEndboss();
-                world.level.enemies[1].stopChicken();
+                world.level.enemies.forEach((enemy) => {
+                    if (enemy instanceof Chicken) {
+                        enemy.stopChicken();
+                    }
+                })
             }, 800);
         }    
     }
