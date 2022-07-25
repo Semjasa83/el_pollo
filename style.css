@@ -15,6 +15,7 @@ body {
 /******* Canvas and Mobile  ********/
 canvas {
     display: block;
+    position: relative;
 }
 
 @media only screen and (max-width: 720px) {
@@ -28,6 +29,73 @@ canvas {
         height: 100vh;
     }
 }
+
+@media screen and (max-width: 720px) {
+    .button-33{
+        min-width: 2rem;
+        min-height: 0.5rem;
+        padding: 3px 5px;
+    }
+}
+
+#gameArea {
+    position: relative;
+}
+
+#controlPanel{
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#controlPanel img{
+    object-fit: contain;
+    width: 24px;
+    height: 24px;
+    padding: 0.75rem;
+    background-color: rgba(187, 104, 44, 0.55);
+}
+
+.btn-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 100%;
+}
+
+#controlPanel #btnleft{
+    position: absolute;
+    bottom: 1rem;
+    left: 1.5rem;
+}
+
+#controlPanel #btnright{
+    position: absolute;
+    bottom: 1rem;
+    left: 8.5rem;
+}
+
+#controlPanel #btnthrow{
+    position: absolute;
+    bottom: 1rem;
+    right: 1.5rem;
+}
+
+#controlPanel #btnjump{
+    position: absolute;
+    bottom: 1rem;
+    right: 8.5rem;
+}
+
+#controlPanel #btnfullscreen{
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+}
+
 
 /******* Startscreen and Layout  ********/
 .bgr {
@@ -116,10 +184,3 @@ canvas {
     z-index: 2;
 }
 
-@media screen and (max-width: 720px) {
-    .button-33{
-        min-width: 2rem;
-        min-height: 0.5rem;
-        padding: 3px 5px;
-    }
-}

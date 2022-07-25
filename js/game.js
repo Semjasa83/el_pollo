@@ -6,7 +6,9 @@ function startGame() {
     document.getElementById("startscreen_img").classList.add("hide");
     document.getElementById("gameStartButton").classList.add("hide");
     document.getElementById("title").classList.add("hide");
+    document.getElementById("gameArea").classList.remove("hide");
     document.getElementById("canvas").classList.remove("hide");
+    document.getElementById("controlPanel").classList.remove("hide");
     init();
 }
 
