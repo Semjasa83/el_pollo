@@ -43,11 +43,13 @@ canvas {
     align-items: center;
     justify-content: center;
     object-fit: cover;
+    max-width: 720px;
+    max-height: 480px;
 }
 
 #startscreen img {
-    max-width: 720px;
-    max-height: 480px;
+    width: 100%;
+    height: 100%;
 }
 
 #gameStartButton {
@@ -67,15 +69,17 @@ canvas {
     text-decoration: none;
     transition: all 250ms;
     border: 0;
-    font-size: 12px;
+    font-size: 10px;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
 }
 
 .btn-33 {
+    position: absolute;
+    top: 5%;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .button-33:hover {
@@ -110,4 +114,12 @@ canvas {
     display: flex;
     flex-direction: column;
     z-index: 2;
+}
+
+@media screen and (max-width: 720px) {
+    .button-33{
+        min-width: 2rem;
+        min-height: 0.5rem;
+        padding: 3px 5px;
+    }
 }

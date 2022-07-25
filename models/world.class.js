@@ -116,7 +116,7 @@ class World {
             this.flipImage(mo);
         }
         this.drawImageObject(mo);
-        this.drawOffsetFrame(mo);
+        //this.drawOffsetFrame(mo);
         if (mo.otherDirection) { //if ctx has been changed, it is undone here
             this.flipImageBack(mo);
         }
