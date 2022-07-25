@@ -128,13 +128,10 @@ class World {
 
 
     openEndscreen() {
-        if (world.character.isDead()) {
+        if (world.character.isDead() || world.level.enemies[0].bossIsDead()) {
             this.endScreen = new Endscreen();
         }
-
-        if (world.level.enemies[0].bossIsDead()) {
-            this.endScreen = new Endscreen();
-        }
+        
     }
 
     flipImage(mo) {
