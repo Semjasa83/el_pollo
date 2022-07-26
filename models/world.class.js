@@ -138,9 +138,21 @@ class World {
                     }
                 })
             }, 800);
-        }    
+            this.stopWorldMusic();
+            this.killButtonsOnDead()
+        }
     }
 
+    stopWorldMusic() {
+        this.world_music.pause();
+        this.world_music.currentTime = 0;
+    }
+
+    killButtonsOnDead() {
+        if (this.character.isDead()) {
+            this.keyboard = false;
+        }
+    }
 
     flipImage(mo) {
         this.ctx.save(); //save Pictures
@@ -198,7 +210,7 @@ class World {
             this.bottleBar.removeBottle();
             this.bottleBar.setPercentage();
             setTimeout(() => {
-                this.cooldown = false 
+                this.cooldown = false
             }, 1000);
         }
 

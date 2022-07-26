@@ -11,6 +11,7 @@ class Character extends MovableObject {
     speed = 7;
 
     boss_Stage = false;
+    stopCharacter;
 
     offset = {
         top: 90,
@@ -118,11 +119,14 @@ class Character extends MovableObject {
          * Character Moveanimation for Jump & Move Left and Right
          */
 
-        setInterval(() => {
+        this.stopCharacter = setInterval(() => {
             if (this.isDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
+                this.died_sound.play();
+                clearInterval(this.stopCharacter);
             } else if (this.isHurt()) {
                 this.playAnimation(this.IMAGES_HURT);
+                this.hurt_sound.play();
             } else if (this.isAboveGround()) {
                 this.playAnimation(this.IMAGES_JUMPING);
             } else {
