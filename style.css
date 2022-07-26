@@ -24,9 +24,12 @@ canvas {
     }
 }
 
-@media only screen and (max-height: 480px) {
+@media only screen and (max-height: 490px) {
     canvas {
         height: 100vh;
+    }
+    .bgr h1{
+        display: none;
     }
 }
 
@@ -146,6 +149,14 @@ canvas {
 .btn-33 {
     position: absolute;
     top: 5%;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.btn-44 {
+    position: absolute;
+    top: 1.5rem;
+    right: 7rem;
     cursor: pointer;
     font-size: 1.2rem;
 }
