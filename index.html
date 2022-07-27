@@ -36,7 +36,7 @@
 
 </head>
 
-<body>
+<body onload="loadTouchButtons()">
     <div class="bgr">
         <h1 class="title" id="title">El Pollo loco</h1>
         <div id="startscreen">
@@ -65,8 +65,9 @@
                 <img src="img/panel/rightbtn.png" class="btn-panel" id="btnright">
                 <img src="img/panel/upbtn.png" class="btn-panel" id="btnjump">
                 <img src="img/panel/firebtn.png" class="btn-panel" id="btnthrow">
-                <img src="img/panel/fullscreen.png" class="btn-panel" id="btnfullscreen">
-                <button id="restartGame" class="button-33 btn-44">Restart</button>
+                <img src="img/panel/fullscreen.png" class="btn-panel" id="btnfullscreen" onclick="Fullscreen()">
+                <img src="img/panel/exit.png" class="btn-panel hide" id="btnexitfullscreen" onclick="exitFullscreen()">
+                <button id="restartGame" class="button-33 btn-44 hide"><a href="index.html">Restart</a></button>
             </div>
         </div>
     </div>

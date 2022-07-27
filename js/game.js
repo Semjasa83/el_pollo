@@ -1,6 +1,10 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
+let fullscreen
+
+let addedFullscreen = document.getElementById('btnfullscreen');
+let removeFullscreen = document.getElementById('btnexitfullscreen');
 
 function startGame() {
     document.getElementById("startscreen_img").classList.add("hide");
@@ -21,12 +25,21 @@ function init() {
     initLevel();
     world = new World(canvas, keyboard);
     console.log('My Character is', world.character); // oder world[`character`]
-    //fullscreen();
+    document.getElementById('restartGame').classList.add('hide');
 }
 
-function fullscreen() {
+function Fullscreen() {
     canvas = document.getElementById('canvas');
     canvas.requestFullscreen();
+    /*removeFullscreen.classList.remove('hide');
+    addedFullscreen.classList.add('hide');*/
+}
+
+function exitFullscreen() {
+    canvas = document.getElementById('canvas');
+    canvas.exitFullscreen();
+    /*removeFullscreen.classList.add('hide');
+    addedFullscreen.classList.remove('hide');*/
 }
 
 /**
@@ -89,7 +102,7 @@ document.addEventListener('keyup', (e) => {
     //console.log(e);
 });
 
-
+function loadTouchButtons() {
 document.getElementById('btnleft').addEventListener('touchstart', (e) => {
     e.preventDefault();
     keyboard.LEFT = true;
@@ -110,11 +123,11 @@ document.getElementById('btnright').addEventListener('touchend', (e) => {
 
 document.getElementById('btnjump').addEventListener('touchstart', (e) => {
     e.preventDefault();
-    keyboard.UP = true;
+    keyboard.SPACE = true;
 });
 document.getElementById('btnjump').addEventListener('touchend', (e) => {
     e.preventDefault();
-    keyboard.UP = false;
+    keyboard.SPACE = false;
 });
 
 document.getElementById('btnthrow').addEventListener('touchstart', (e) => {
@@ -125,3 +138,8 @@ document.getElementById('btnthrow').addEventListener('touchend', (e) => {
     e.preventDefault();
     keyboard.D = false;
 });
+document.getElementById('btnthrow').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keyboard.D = true;
+});
+}

@@ -140,6 +140,7 @@ class World {
             }, 800);
             this.stopWorldMusic();
             this.killButtonsOnDead()
+            document.getElementById('restartGame').classList.remove('hide');
         }
     }
 

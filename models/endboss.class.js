@@ -89,7 +89,7 @@ class Endboss extends MovableObject {
         //this.chicken_atk.play();
         setInterval(() => {
             this.x -= this.speed;
-        }, 200);
+        }, 180);
     }
 }
 
