@@ -88,3 +88,40 @@ document.addEventListener('keyup', (e) => {
     }
     //console.log(e);
 });
+
+
+document.getElementById('btnleft').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    LEFT = true;
+});
+document.getElementById('btnleft').addEventListener('touchend', (e) => {
+    e.preventDefault();
+    LEFT = false;
+});
+
+document.getElementById('btnright').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    RIGHT = true;
+});
+document.getElementById('btnright').addEventListener('touchend', (e) => {
+    e.preventDefault();
+    RIGHT = false;
+});
+
+document.getElementById('btnjump').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    UP = true;
+});
+document.getElementById('btnjump').addEventListener('touchend', (e) => {
+    e.preventDefault();
+    UP = false;
+});
+
+document.getElementById('btnthrow').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    D = true;
+});
+document.getElementById('btnthrow').addEventListener('touchend', (e) => {
+    e.preventDefault();
+    D = false;
+});

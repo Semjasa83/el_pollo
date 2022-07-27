@@ -27,6 +27,7 @@ canvas {
 @media only screen and (max-height: 490px) {
     canvas {
         height: 100vh;
+        width: 100vw;
     }
     .bgr h1{
         display: none;
@@ -67,6 +68,7 @@ canvas {
     align-items: center;
     border: 3px solid black;
     border-radius: 100%;
+    z-index: 10;
 }
 
 #controlPanel #btnleft{
