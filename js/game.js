@@ -92,36 +92,36 @@ document.addEventListener('keyup', (e) => {
 
 document.getElementById('btnleft').addEventListener('touchstart', (e) => {
     e.preventDefault();
-    LEFT = true;
+    keyboard.LEFT = true;
 });
 document.getElementById('btnleft').addEventListener('touchend', (e) => {
     e.preventDefault();
-    LEFT = false;
+    keyboard.LEFT = false;
 });
 
 document.getElementById('btnright').addEventListener('touchstart', (e) => {
     e.preventDefault();
-    RIGHT = true;
+    keyboard.RIGHT = true;
 });
 document.getElementById('btnright').addEventListener('touchend', (e) => {
     e.preventDefault();
-    RIGHT = false;
+    keyboard.RIGHT = false;
 });
 
 document.getElementById('btnjump').addEventListener('touchstart', (e) => {
     e.preventDefault();
-    UP = true;
+    keyboard.UP = true;
 });
 document.getElementById('btnjump').addEventListener('touchend', (e) => {
     e.preventDefault();
-    UP = false;
+    keyboard.UP = false;
 });
 
 document.getElementById('btnthrow').addEventListener('touchstart', (e) => {
     e.preventDefault();
-    D = true;
+    keyboard.D = true;
 });
 document.getElementById('btnthrow').addEventListener('touchend', (e) => {
     e.preventDefault();
-    D = false;
+    keyboard.D = false;
 });
