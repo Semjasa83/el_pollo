@@ -107,6 +107,10 @@ canvas {
     right: 8.5rem;
 }
 
+#restartGame {
+    z-index: 10;
+}
+
 #fullscreenPanel {
     position: absolute;
     bottom: 0;
