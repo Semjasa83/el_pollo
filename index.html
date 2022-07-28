@@ -42,33 +42,25 @@
         <div id="startscreen">
             <img id="startscreen_img" src="img/9.Intro_Outro_Image/Start_Screen/Option2.png">
             <button id="gameStartButton" class="button-33 btn-33" onclick="startGame()">Start</button>
-            <!--
-                <div id="options">
-                    <span class="">D = Throw</span>
-                    <span class="">Spacebar = Jump</span>
-                    <span class="">Move with Arrow Keys</span>
-                </div>
-            -->
         </div>
-        <!--
-            <div id="game-guide-container">
-                <div class="game-guide">
-                    <button id="gameStartButton" class="button-33 btn-33" onclick="startGame()">Start</button>
-                    <span class="button-33" onclick="gameOptions()">Options</span>
-                </div>
-            </div>
-            -->
         <div id="gameArea" class="hide">
             <canvas id="canvas" width="720" height="480" class="hide"></canvas>
-            <div id="controlPanel" class="hide">
+            <div id="controlPanel" class="">
                 <img src="img/panel/leftbtn.png" class="btn-panel" id="btnleft">
                 <img src="img/panel/rightbtn.png" class="btn-panel" id="btnright">
                 <img src="img/panel/upbtn.png" class="btn-panel" id="btnjump">
                 <img src="img/panel/firebtn.png" class="btn-panel" id="btnthrow">
-                <img src="img/panel/fullscreen.png" class="btn-panel" id="btnfullscreen" onclick="Fullscreen()">
-                <img src="img/panel/exit.png" class="btn-panel hide" id="btnexitfullscreen" onclick="exitFullscreen()">
                 <button id="restartGame" class="button-33 btn-44 hide"><a href="index.html">Restart</a></button>
             </div>
+            <div id="fullscreenPanel" class="">
+                <img src="img/panel/fullscreen.png" class="btn-panel" id="btnfullscreen" onclick="Fullscreen()">
+                <img src="img/panel/exit.png" class="btn-panel hide" id="btnexitfullscreen" onclick="exitFullscreen()">
+            </div>
+        </div>
+        <div class="instructions" id="instructions">
+            <span class="">D = Throw</span><br>
+            <span class="">Spacebar = Jump</span><br>
+            <span class="">Move with Arrow Keys</span>
         </div>
     </div>
 </body>

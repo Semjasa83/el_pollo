@@ -60,6 +60,29 @@ class Character extends MovableObject {
         'img/2.Secuencias_Personaje-Pepe-correcciขn/5.Muerte/D-57.png'
     ];
 
+    IMAGES_IDLE = [
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-1.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-2.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-3.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-4.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-5.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-6.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-7.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-8.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-9.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-10.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-11.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-12.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-13.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-14.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-15.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-16.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-17.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-18.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-19.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/1.IDLE/IDLE/I-20.png'
+    ]
+
     /**
      * Soundfiles for Character
      */
@@ -123,7 +146,7 @@ class Character extends MovableObject {
             if (this.isDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
                 this.died_sound.play();
-                clearInterval(this.stopCharacter);
+                clearInterval(this.stopCharacter);   
             } else if (this.isHurt()) {
                 this.playAnimation(this.IMAGES_HURT);
                 this.hurt_sound.play();
@@ -133,7 +156,8 @@ class Character extends MovableObject {
                 if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
                     this.playAnimation(this.IMAGES_WALKING);
                 }
-            }
+            } 
+            
         }, 120);
     }
 }

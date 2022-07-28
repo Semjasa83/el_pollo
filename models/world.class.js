@@ -214,7 +214,6 @@ class World {
                 this.cooldown = false
             }, 1000);
         }
-
     }
 
     checkCollisions() {
@@ -250,7 +249,7 @@ class World {
 
     bottleCollision() {
         this.level.bottles.forEach((bottle, index) => {
-            if (bottle.width > 0 && bottle.height > 0) {
+            if (bottle.width > 0 && bottle.height > 0 && this.ammo.length <= 9) {
                 if (this.character.isColliding(bottle)) {
                     this.bottleBar.collectBottle();
                     this.bottleBar.setPercentage(this.bottleBar.percentage);

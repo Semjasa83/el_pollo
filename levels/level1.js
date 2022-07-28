@@ -10,7 +10,7 @@ function initLevel() {
 
 level1 = new Level(
     [
-        new Endboss(),
+        new Endboss(),/*
         new Chicken(),
         new Chicken(),
         new Chicken(),
@@ -22,7 +22,7 @@ level1 = new Level(
         new Chicken(),
         new Chicken(),
         new Chicken(),
-        new Chicken()
+        new Chicken()*/
     ],
     [
         new Cloud(),
@@ -71,8 +71,6 @@ level1 = new Level(
         new Coins('img/8.Coin/Moneda1.png', 1750, 150),
         new Coins('img/8.Coin/Moneda1.png', 2550, 310),
         new Coins('img/8.Coin/Moneda1.png', 2600, 310),
-        new Coins('img/8.Coin/Moneda1.png', 3900, 310),
-        new Coins('img/8.Coin/Moneda1.png', 3950, 310),
     ],
     );
 }
