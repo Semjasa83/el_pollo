@@ -44,7 +44,11 @@
             <button id="gameStartButton" class="button-33 btn-33" onclick="startGame()">Start</button>
         </div>
         <div id="gameArea" class="hide">
-            <canvas id="canvas" width="720" height="480" class="hide"></canvas>
+            <div id="canvasGameContainer" width="720" height="480" class="hide">
+                <canvas id="canvas" width="720" height="480" class="hide"></canvas>
+                <button id="restartGame" class="button-33 btn-44 hide"><a href="index.html">Restart</a></button>
+            </div>
+
             <div id="controlPanel" class="touchButtons">
                 <img src="img/panel/leftbtn.png" class="btn-panel" id="btnleft">
                 <img src="img/panel/rightbtn.png" class="btn-panel" id="btnright">
@@ -52,7 +56,6 @@
                 <img src="img/panel/firebtn.png" class="btn-panel" id="btnthrow">
             </div>
             <div id="fullscreenPanel" class="">
-                <button id="restartGame" class="button-33 btn-44 hide"><a href="index.html">Restart</a></button>
                 <img src="img/panel/fullscreen.png" class="btn-panel" id="btnfullscreen" onclick="Fullscreen()">
                 <img src="img/panel/exit.png" class="btn-panel hide" id="btnexitfullscreen" onclick="exitFullscreen()">
             </div>
