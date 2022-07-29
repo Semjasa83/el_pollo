@@ -30,12 +30,12 @@ function init() {
 }
 
 function Fullscreen() {
-    canvas = document.getElementById('canvas');
+    canvas = document.getElementById('canvasGameContainer');
     canvas.requestFullscreen();
 }
 
 function exitFullscreen() {
-    canvas = document.getElementById('canvas');
+    canvas = document.getElementById('canvasGameContainer');
     canvas.exitFullscreen();
 }
 
