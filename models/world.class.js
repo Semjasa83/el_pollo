@@ -128,7 +128,7 @@ class World {
 
 
     openEndscreen() {
-        if (world.character.isDead() || world.level.enemies[0].bossIsDead()) {
+        if (world.character.isDead() || world.level.enemies[0].isDead()) {
             this.endScreen = new Endscreen();
             setTimeout(() => {
                 world.level.enemies[0].stopEndboss();
@@ -238,7 +238,8 @@ class World {
             this.throwableObjects.forEach(bottle => {
                 if (enemy.isColliding(bottle)) {
                     if (enemy instanceof Endboss) {
-                        enemy.bossHit();
+                        enemy.hit(25);
+                        enemy.chicken_hit.play();
                     } else {
                         enemy.energy -= 1;
                     }

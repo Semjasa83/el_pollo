@@ -81,8 +81,8 @@ class MovableObject extends DrawableObject {
 
     /** CHARACTER COLLISION **/
 
-    hit() {
-        this.energy -= 5; //dmg ratio for hit
+    hit(damage) {
+        this.energy -= damage ? damage : 5; //dmg ratio for hit
         if (this.energy < 0) {
             this.energy = 0;
         } else {
@@ -98,29 +98,5 @@ class MovableObject extends DrawableObject {
 
     isDead() {
         return this.energy <= 0;
-    }
-
-
-    /** BOSS COLLISION **/
-    
-    bossHit(){
-        this.energy -= 25; //dmg ratio for hit
-        console.log('boss hit', this.energy);
-        if (this.energy < 0) {
-            this.energy = 0;
-        } else {
-            this.lastHit = new Date().getTime();
-            this.chicken_hit.play();
-        }
-    }
-
-    bossIsHurt() {
-        let timepassed = new Date().getTime() - this.lastHit; // Difference in ms
-        timepassed = timepassed / 1000; //differnece in s
-        return timepassed < 1; //returns TRUE
-    }
-
-    bossIsDead() {
-        return this.energy == 0;
     }
 }

@@ -63,10 +63,10 @@ class Endboss extends MovableObject {
 
     animate() {
         this.stopBossInterval = setInterval(() => {
-            if (this.bossIsDead()) {
+            if (this.isDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
                 this.speed = 0;
-            } else if (this.bossIsHurt()) {
+            } else if (this.isHurt()) {
                 this.playAnimation(this.IMAGES_HURT);
             } else {
                 if (this.boss_Alert == true) {
@@ -89,7 +89,7 @@ class Endboss extends MovableObject {
         //this.chicken_atk.play();
         setInterval(() => {
             this.x -= this.speed;
-        }, 180);
+        }, 160);
     }
 }
 
